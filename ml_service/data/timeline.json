@@ -1,0 +1,160 @@
+{
+  "r00@gmail.com": [
+    {
+      "id": "prediction_1776623937597",
+      "type": "prediction",
+      "title": "AI Diagnosis: Cervical spondylosis",
+      "detail": "Symptoms: Throat Pain, Neck Pain, Stiff Neck, Cough",
+      "meta": {
+        "symptoms": [
+          "Throat Pain",
+          "Neck Pain",
+          "Stiff Neck",
+          "Cough"
+        ],
+        "disease": "Cervical spondylosis"
+      },
+      "timestamp": "2026-04-20T00:08:57.597684",
+      "date": "2026-04-20"
+    },
+    {
+      "id": "appointment_1776624106122",
+      "type": "appointment",
+      "title": "Appointment booked with Dr. Lakshmi Reddy",
+      "detail": "Endocrinologist \u00b7 2026-04-26 at 09:00 AM \u00b7 Video \u00b7 General consultation",
+      "meta": {
+        "booking_id": "AE51C50F",
+        "doctor_id": 9
+      },
+      "timestamp": "2026-04-20T00:11:46.122925",
+      "date": "2026-04-20"
+    }
+  ],
+  "st01@gmail.com": [
+    {
+      "id": "prediction_1776628634776",
+      "type": "prediction",
+      "title": "AI Diagnosis: Migraine",
+      "detail": "Symptoms: Headache, Dizziness, High Fever, Blurred Vision",
+      "meta": {
+        "symptoms": [
+          "Headache",
+          "Dizziness",
+          "High Fever",
+          "Blurred Vision"
+        ],
+        "disease": "Migraine"
+      },
+      "timestamp": "2026-04-20T01:27:14.776414",
+      "date": "2026-04-20"
+    },
+    {
+      "id": "appointment_1776628659014",
+      "type": "appointment",
+      "title": "Appointment booked with Dr. Ramesh Gupta",
+      "detail": "Neurologist \u00b7 2026-04-22 at 03:00 PM \u00b7 Clinic \u00b7 For: Migraine",
+      "meta": {
+        "booking_id": "73A92AB8",
+        "doctor_id": 8
+      },
+      "timestamp": "2026-04-20T01:27:39.014378",
+      "date": "2026-04-20"
+    }
+  ],
+  "ss99@gmail.com": [
+    {
+      "id": "prediction_1776672340070",
+      "type": "prediction",
+      "title": "AI Diagnosis: Migraine",
+      "detail": "Symptoms: Headache, Dizziness, High Fever, Blurred Vision",
+      "meta": {
+        "symptoms": [
+          "Headache",
+          "Dizziness",
+          "High Fever",
+          "Blurred Vision"
+        ],
+        "disease": "Migraine"
+      },
+      "timestamp": "2026-04-20T13:35:40.070253",
+      "date": "2026-04-20"
+    },
+    {
+      "id": "prediction_1776672352552",
+      "type": "prediction",
+      "title": "AI Diagnosis: Migraine",
+      "detail": "Symptoms: Headache, Dizziness, High Fever, Blurred Vision",
+      "meta": {
+        "symptoms": [
+          "Headache",
+          "Dizziness",
+          "High Fever",
+          "Blurred Vision"
+        ],
+        "disease": "Migraine"
+      },
+      "timestamp": "2026-04-20T13:35:52.552454",
+      "date": "2026-04-20"
+    },
+    {
+      "id": "appointment_1776672381624",
+      "type": "appointment",
+      "title": "Appointment booked with Dr. Ramesh Gupta",
+      "detail": "Neurologist \u00b7 2026-04-20 at 10:00 AM \u00b7 Video \u00b7 For: Migraine",
+      "meta": {
+        "booking_id": "0E3DDEA3",
+        "doctor_id": 8
+      },
+      "timestamp": "2026-04-20T13:36:21.624667",
+      "date": "2026-04-20"
+    }
+  ],
+  "shivanshthakral03@gmail.com": [
+    {
+      "id": "prediction_1777107916368",
+      "type": "prediction",
+      "title": "AI Diagnosis: Migraine",
+      "detail": "Symptoms: Headache, Dizziness, High Fever, Blurred Vision",
+      "meta": {
+        "symptoms": [
+          "Headache",
+          "Dizziness",
+          "High Fever",
+          "Blurred Vision"
+        ],
+        "disease": "Migraine"
+      },
+      "timestamp": "2026-04-25T14:35:16.368116",
+      "date": "2026-04-25"
+    },
+    {
+      "id": "appointment_1777108013007",
+      "type": "appointment",
+      "title": "Appointment booked with Dr. Meera Desai",
+      "detail": "Pediatrician \u00b7 2026-04-27 at 04:00 PM \u00b7 Clinic \u00b7 General consultation",
+      "meta": {
+        "booking_id": "8FCE8BD0",
+        "doctor_id": 5
+      },
+      "timestamp": "2026-04-25T14:36:53.007207",
+      "date": "2026-04-25"
+    }
+  ],
+  "testpatient123@example.com": [
+    {
+      "id": "prediction_1777314439278",
+      "type": "prediction",
+      "title": "AI Diagnosis: Bronchial Asthma",
+      "detail": "Symptoms: Fever, Cough",
+      "meta": {
+        "symptoms": [
+          "Fever",
+          "Cough"
+        ],
+        "disease": "Bronchial Asthma"
+      },
+      "timestamp": "2026-04-27T23:57:19.279029",
+      "date": "2026-04-27"
+    }
+  ]
+}

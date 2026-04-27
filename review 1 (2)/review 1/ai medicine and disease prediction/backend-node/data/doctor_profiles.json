@@ -1,0 +1,243 @@
+{
+  "profiles": [
+    {
+      "userId": "mnlhekvg9ssj7ik0gt7",
+      "specialization": "",
+      "experience_years": 0,
+      "fees": 0,
+      "clinic_name": "",
+      "clinic_address": "",
+      "city": "",
+      "bio": "",
+      "availability": {},
+      "is_online": false,
+      "is_verified": false,
+      "verification_status": "pending",
+      "rating": 0,
+      "total_reviews": 0,
+      "languages": [
+        "English"
+      ],
+      "consultation_types": [
+        "in_person"
+      ],
+      "rejection_reason": ""
+    },
+    {
+      "userId": "mo0a3ls2q4xsy8p24e",
+      "specialization": "",
+      "experience_years": 0,
+      "fees": 0,
+      "clinic_name": "",
+      "clinic_address": "",
+      "city": "",
+      "bio": "",
+      "availability": {},
+      "is_online": false,
+      "is_verified": false,
+      "verification_status": "pending",
+      "rating": 0,
+      "total_reviews": 0,
+      "languages": [
+        "English"
+      ],
+      "consultation_types": [
+        "in_person"
+      ],
+      "rejection_reason": ""
+    },
+    {
+      "userId": "mo49w1befau6htja0a",
+      "specialization": "Cardiologist",
+      "experience_years": 12,
+      "fees": 2000,
+      "clinic_name": "",
+      "clinic_address": "",
+      "city": "Delhi",
+      "bio": "",
+      "availability": {
+        "Monday": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00",
+          "11:30",
+          "12:00"
+        ],
+        "Tuesday": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00",
+          "11:30"
+        ],
+        "Wednesday": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00",
+          "11:30"
+        ],
+        "Thursday": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00",
+          "11:30",
+          "12:00",
+          "14:00",
+          "14:30",
+          "15:00",
+          "15:30",
+          "16:00",
+          "16:30",
+          "17:00",
+          "17:30",
+          "18:00"
+        ],
+        "Friday": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00",
+          "11:30",
+          "12:00",
+          "14:00",
+          "14:30",
+          "15:00",
+          "15:30",
+          "16:00",
+          "16:30",
+          "17:00",
+          "17:30",
+          "18:00"
+        ],
+        "Saturday": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00",
+          "11:30"
+        ],
+        "Sunday": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00"
+        ]
+      },
+      "is_online": true,
+      "is_verified": false,
+      "verification_status": "pending",
+      "rating": 0,
+      "total_reviews": 0,
+      "languages": [
+        "English",
+        "Hindi"
+      ],
+      "consultation_types": [
+        "in_person"
+      ],
+      "rejection_reason": ""
+    },
+    {
+      "userId": "mo4n10m74gv96491kh2",
+      "specialization": "",
+      "experience_years": 0,
+      "fees": 0,
+      "clinic_name": "",
+      "clinic_address": "",
+      "city": "",
+      "bio": "",
+      "availability": {},
+      "is_online": false,
+      "is_verified": false,
+      "verification_status": "pending",
+      "rating": 0,
+      "total_reviews": 0,
+      "languages": [
+        "English"
+      ],
+      "consultation_types": [
+        "in_person"
+      ],
+      "rejection_reason": ""
+    },
+    {
+      "userId": "mo5eed5plag9frdo5f",
+      "specialization": "",
+      "experience_years": 0,
+      "fees": 0,
+      "clinic_name": "",
+      "clinic_address": "",
+      "city": "",
+      "bio": "",
+      "availability": {},
+      "is_online": false,
+      "is_verified": false,
+      "verification_status": "pending",
+      "rating": 0,
+      "total_reviews": 0,
+      "languages": [
+        "English"
+      ],
+      "consultation_types": [
+        "in_person"
+      ],
+      "rejection_reason": ""
+    },
+    {
+      "userId": "mo645rc8zuozrwlp0ho",
+      "specialization": "",
+      "experience_years": 0,
+      "fees": 0,
+      "clinic_name": "",
+      "clinic_address": "",
+      "city": "",
+      "bio": "",
+      "availability": {},
+      "is_online": false,
+      "is_verified": false,
+      "verification_status": "pending",
+      "rating": 0,
+      "total_reviews": 0,
+      "languages": [
+        "English"
+      ],
+      "consultation_types": [
+        "in_person"
+      ],
+      "rejection_reason": ""
+    },
+    {
+      "userId": "mo6wz5uq9swf8o4heq5",
+      "specialization": "",
+      "experience_years": 0,
+      "fees": 0,
+      "clinic_name": "",
+      "clinic_address": "",
+      "city": "",
+      "bio": "",
+      "availability": {},
+      "is_online": false,
+      "is_verified": false,
+      "verification_status": "pending",
+      "rating": 0,
+      "total_reviews": 0,
+      "languages": [
+        "English"
+      ],
+      "consultation_types": [
+        "in_person"
+      ],
+      "rejection_reason": ""
+    }
+  ]
+}

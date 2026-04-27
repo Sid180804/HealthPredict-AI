@@ -1,0 +1,42 @@
+Disease,Medicine_1,Medicine_2,Medicine_3,Medicine_4,Specialist
+Fungal infection,Clotrimazole cream,Fluconazole,Terbinafine,Ketoconazole shampoo,Dermatologist
+Allergy,Cetirizine,Loratadine,Fexofenadine,Montelukast,Allergist
+GERD,Omeprazole,Pantoprazole,Ranitidine,Antacids,Gastroenterologist
+Chronic cholestasis,Ursodeoxycholic acid,Cholestyramine,Rifampicin,Vitamin supplements,Gastroenterologist
+Drug Reaction,Antihistamines,Corticosteroids,Epinephrine (if severe),Consult doctor immediately,Allergist
+Peptic ulcer disease,Omeprazole,Amoxicillin,Clarithromycin,Antacids,Gastroenterologist
+AIDS,Antiretroviral therapy,Consult specialist,Preventive antibiotics,Vitamins,Infectious Disease Specialist
+Diabetes,Metformin,Insulin,Glipizide,Sitagliptin,Endocrinologist
+Gastroenteritis,ORS (Oral Rehydration Solution),Metronidazole,Domperidone,Probiotics,General Physician
+Bronchial Asthma,Salbutamol inhaler,Budesonide inhaler,Montelukast,Prednisolone,Pulmonologist
+Hypertension,Amlodipine,Losartan,Atenolol,Hydrochlorothiazide,Cardiologist
+Migraine,Sumatriptan,Ibuprofen,Paracetamol,Topiramate (preventive),Neurologist
+Cervical spondylosis,Ibuprofen,Paracetamol,Muscle relaxants,Physiotherapy,Orthopedist
+Paralysis (brain hemorrhage),Aspirin,Atorvastatin,Clopidogrel,Physiotherapy,Neurologist
+Jaundice,Liver support supplements,Ursodeoxycholic acid,Vitamins,Consult doctor,Hepatologist
+Malaria,Artemether-Lumefantrine,Chloroquine,Primaquine,Paracetamol (for fever),Infectious Disease Specialist
+Chicken pox,Acyclovir,Calamine lotion,Paracetamol,Antihistamines (itching),General Physician
+Dengue,Paracetamol,ORS,Vitamins,Consult doctor,General Physician
+Typhoid,Ciprofloxacin,Azithromycin,Ceftriaxone,Paracetamol,General Physician
+hepatitis A,Rest and fluids,Vitamins,Avoid alcohol,Consult doctor,Hepatologist
+Hepatitis B,Tenofovir,Entecavir,Lamivudine,Vitamins,Hepatologist
+Hepatitis C,Sofosbuvir,Ribavirin,Daclatasvir,Consult specialist,Hepatologist
+Hepatitis D,Interferon alpha,Tenofovir,Vitamins,Consult specialist,Hepatologist
+Hepatitis E,Rest and fluids,Vitamins,Avoid alcohol,Consult doctor,Hepatologist
+Alcoholic hepatitis,Stop alcohol,Corticosteroids,Vitamins,Liver support,Hepatologist
+Tuberculosis,Isoniazid,Rifampicin,Ethambutol,Pyrazinamide,Pulmonologist
+Common Cold,Paracetamol,Cetirizine,Vitamin C,Decongestants,General Physician
+Pneumonia,Amoxicillin,Azithromycin,Paracetamol,Cough syrup,Pulmonologist
+Dimorphic hemorrhoids(piles),Lignocaine ointment,Sitz baths,Fiber supplements,Stool softeners,General Surgeon
+Heart attack,Aspirin,Metoprolol,Nitroglycerin,Call ambulance immediately,Cardiologist
+Variceal bleeding,Terlipressin,Propranolol,Consult specialist,Hospital admission required,Gastroenterologist
+Hypothyroidism,Levothyroxine,Vitamins,Selenium supplements,Regular TSH monitoring,Endocrinologist
+Hyperthyroidism,Methimazole,Propranolol,Radioactive iodine,Consult specialist,Endocrinologist
+Hypoglycemia,Glucose tablets,Dextrose IV,ORS,Regular sugar monitoring,Endocrinologist
+Osteoarthritis,Paracetamol,Ibuprofen,Glucosamine,Physiotherapy,Orthopedist
+Arthritis,Ibuprofen,Methotrexate,Hydroxychloroquine,Physiotherapy,Rheumatologist
+(vertigo) Paroxymal Positional Vertigo,Meclizine,Betahistine,Dimenhydrinate,Epley maneuver,Neurologist
+Acne,Benzoyl peroxide,Clindamycin gel,Tretinoin,Doxycycline,Dermatologist
+Urinary tract infection,Nitrofurantoin,Trimethoprim,Ciprofloxacin,Plenty of water,Urologist
+Psoriasis,Betamethasone cream,Methotrexate,Cyclosporine,Vitamin D cream,Dermatologist
+Impetigo,Mupirocin cream,Fusidic acid,Amoxicillin,Antiseptic wash,Dermatologist

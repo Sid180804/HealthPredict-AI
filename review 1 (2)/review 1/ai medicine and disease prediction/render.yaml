@@ -1,0 +1,40 @@
+﻿# render.yaml — Render Blueprint
+# Deploys both backend services with one click.
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  # ── Node.js Backend (Port 5000) ─────────────────────────────
+  - type: web
+    name: healthpredict-backend
+    runtime: node
+    rootDir: review 1 (2)/review 1/ai medicine and disease prediction/backend-node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ML_SERVICE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+
+  # ── Flask ML Microservice (Port 5001) ───────────────────────
+  - type: web
+    name: healthpredict-ml
+    runtime: python
+    rootDir: review 1 (2)/review 1/ai medicine and disease prediction/ml_service
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: JWT_SECRET
+        sync: false

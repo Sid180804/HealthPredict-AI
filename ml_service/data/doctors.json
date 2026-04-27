@@ -1,0 +1,347 @@
+[
+  {
+    "id": 1, "name": "Dr. Ananya Verma", "specialization": "Internal Medicine",
+    "clinic": "City Care Clinic", "address": "123 Medical Street, City Center, Chennai",
+    "phone": "+91-9876543210", "email": "ananya.verma@clinic.com",
+    "location": "Chennai", "distance_km": 1.2, "rating": 4.8, "experience_years": 12,
+    "consultation_fee": 800, "languages": ["English", "Hindi", "Tamil"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Ananya+Verma&background=059669&color=fff&size=200",
+    "about": "Dr. Ananya Verma is a board-certified internist with 12+ years of clinical experience. She specializes in preventive medicine, chronic disease management, and diagnostic evaluation. Known for her compassionate patient care and thorough approach.",
+    "education": "MBBS (AIIMS Delhi), MD Internal Medicine (CMC Vellore)",
+    "availability": {
+      "Monday":    ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "02:00 PM", "02:30 PM", "03:00 PM", "04:00 PM"],
+      "Tuesday":   ["09:30 AM", "10:00 AM", "11:00 AM", "11:30 AM", "01:00 PM", "02:00 PM", "03:30 PM"],
+      "Wednesday": ["10:00 AM", "10:30 AM", "11:00 AM", "12:00 PM", "02:00 PM", "03:00 PM", "05:00 PM"],
+      "Thursday":  ["09:30 AM", "10:00 AM", "11:30 AM", "12:30 PM", "02:00 PM", "04:30 PM"],
+      "Friday":    ["10:00 AM", "10:30 AM", "11:00 AM", "02:00 PM", "03:00 PM", "06:00 PM"],
+      "Saturday":  ["09:00 AM", "09:30 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "11:00 AM", "01:00 PM", "04:00 PM", "07:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 2, "name": "Dr. Rohan Patel", "specialization": "Cardiologist",
+    "clinic": "Heart & Vascular Center", "address": "456 Health Avenue, Downtown, Mumbai",
+    "phone": "+91-9822113344", "email": "rohan.patel@heartcenter.com",
+    "location": "Mumbai", "distance_km": 3.8, "rating": 4.9, "experience_years": 15,
+    "consultation_fee": 1500, "languages": ["English", "Hindi", "Gujarati"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Rohan+Patel&background=dc2626&color=fff&size=200",
+    "about": "Dr. Rohan Patel is an acclaimed cardiologist and interventional specialist with over 15 years of experience. He has performed 3000+ cardiac procedures including angioplasty and stenting. Fellowship trained in advanced heart failure management.",
+    "education": "MBBS (Grant Medical College), DM Cardiology (AIIMS), Fellowship (Cleveland Clinic)",
+    "availability": {
+      "Monday":    ["11:00 AM", "11:30 AM", "12:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "10:30 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "11:00 AM", "03:00 PM", "04:00 PM"],
+      "Friday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:30 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "10:00 AM", "12:00 PM", "02:00 PM", "05:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 3, "name": "Dr. Priya Sharma", "specialization": "General Physician",
+    "clinic": "Wellness Clinic", "address": "789 Wellness Road, Saket, Delhi",
+    "phone": "+91-9765432109", "email": "priya.sharma@wellness.com",
+    "location": "Delhi", "distance_km": 2.5, "rating": 4.7, "experience_years": 8,
+    "consultation_fee": 600, "languages": ["English", "Hindi", "Bengali"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Priya+Sharma&background=7c3aed&color=fff&size=200",
+    "about": "Dr. Priya Sharma is a dedicated general physician who believes in holistic healthcare. With 8 years of experience, she specializes in managing fever, infections, respiratory conditions, and preventive health check-ups.",
+    "education": "MBBS (Lady Hardinge Medical College), DNB Family Medicine",
+    "availability": {
+      "Monday":    ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "12:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "10:30 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Wednesday": ["09:00 AM", "09:30 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM", "05:00 PM"],
+      "Thursday":  ["10:00 AM", "10:30 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"],
+      "Friday":    ["09:00 AM", "10:00 AM", "10:30 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "01:00 PM", "03:00 PM", "05:00 PM", "07:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 4, "name": "Dr. Vikram Singh", "specialization": "Pulmonologist",
+    "clinic": "Respiratory Care Center", "address": "321 Breath Street, Chandigarh",
+    "phone": "+91-9988776655", "email": "vikram.singh@respiratory.com",
+    "location": "Chandigarh", "distance_km": 4.2, "rating": 4.6, "experience_years": 10,
+    "consultation_fee": 1200, "languages": ["English", "Hindi", "Punjabi"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Vikram+Singh&background=0ea5e9&color=fff&size=200",
+    "about": "Dr. Vikram Singh is a pulmonologist specializing in asthma, COPD, tuberculosis, and sleep-related breathing disorders. He uses advanced pulmonary function testing for precise diagnosis and management.",
+    "education": "MBBS (PGI Chandigarh), MD Pulmonology (KEM Hospital)",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Tuesday":   ["10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Wednesday": ["09:00 AM", "10:00 AM", "11:00 AM", "03:00 PM", "04:00 PM"],
+      "Thursday":  ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Friday":    ["09:00 AM", "10:00 AM", "02:00 PM", "04:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "11:00 AM", "01:00 PM", "04:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 5, "name": "Dr. Meera Desai", "specialization": "Pediatrician",
+    "clinic": "Children's Health Center", "address": "654 Kids Avenue, Pune",
+    "phone": "+91-9876543211", "email": "meera.desai@childrens.com",
+    "location": "Pune", "distance_km": 1.8, "rating": 4.9, "experience_years": 14,
+    "consultation_fee": 900, "languages": ["English", "Hindi", "Marathi"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Meera+Desai&background=ec4899&color=fff&size=200",
+    "about": "Dr. Meera Desai is a senior pediatrician dedicated to children's wellness from newborn to adolescence. She specializes in growth monitoring, vaccination schedules, childhood infections, and developmental pediatrics.",
+    "education": "MBBS (BJ Medical College, Pune), MD Pediatrics (KEM Mumbai)",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "10:30 AM", "11:30 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Tuesday":   ["09:00 AM", "09:30 AM", "10:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Friday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "10:30 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "10:00 AM", "12:00 PM", "04:00 PM", "06:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 6, "name": "Dr. Arjun Nair", "specialization": "Dermatologist",
+    "clinic": "Skin & Wellness Clinic", "address": "12 Glow Street, Koramangala, Bangalore",
+    "phone": "+91-9900112233", "email": "arjun.nair@skincare.com",
+    "location": "Bangalore", "distance_km": 2.1, "rating": 4.7, "experience_years": 9,
+    "consultation_fee": 1000, "languages": ["English", "Malayalam", "Kannada"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Arjun+Nair&background=f59e0b&color=fff&size=200",
+    "about": "Dr. Arjun Nair is a dermatologist specializing in acne, psoriasis, eczema, fungal infections, and cosmetic dermatology. He takes an evidence-based approach to skin conditions and provides personalized treatment plans.",
+    "education": "MBBS (Kasturba Medical College), MD Dermatology (NIMHANS)",
+    "availability": {
+      "Monday":    ["10:00 AM", "10:30 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM", "05:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "11:00 AM", "03:00 PM"],
+      "Friday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["09:00 AM", "10:00 AM", "12:00 PM", "02:00 PM", "05:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 7, "name": "Dr. Sneha Iyer", "specialization": "Gynecologist",
+    "clinic": "Women's Health Hub", "address": "45 Care Road, T. Nagar, Chennai",
+    "phone": "+91-9445566778", "email": "sneha.iyer@womenshealth.com",
+    "location": "Chennai", "distance_km": 3.0, "rating": 4.8, "experience_years": 12,
+    "consultation_fee": 1100, "languages": ["English", "Tamil", "Telugu"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Sneha+Iyer&background=ec4899&color=fff&size=200",
+    "about": "Dr. Sneha Iyer is an experienced gynecologist and obstetrician with 12+ years of practice. She specializes in women's reproductive health, menstrual disorders, PCOS, fertility issues, and high-risk pregnancy management.",
+    "education": "MBBS (Madras Medical College), MS OB-GYN (JIPMER), Fellowship in Reproductive Medicine",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "10:30 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "05:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Friday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "11:00 AM", "01:00 PM", "04:00 PM", "07:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 8, "name": "Dr. Ramesh Gupta", "specialization": "Neurologist",
+    "clinic": "Brain & Spine Clinic", "address": "88 Neural Lane, Medical Hub, Delhi",
+    "phone": "+91-9821234567", "email": "ramesh.gupta@neuro.com",
+    "location": "Delhi", "distance_km": 5.3, "rating": 4.8, "experience_years": 18,
+    "consultation_fee": 1800, "languages": ["English", "Hindi"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Ramesh+Gupta&background=6366f1&color=fff&size=200",
+    "about": "Dr. Ramesh Gupta is a senior neurologist with 18 years of expertise in treating migraines, epilepsy, stroke, Parkinson's disease, and neurodegenerative disorders. He uses advanced neurodiagnostic techniques and is known for his research in headache medicine.",
+    "education": "MBBS (Maulana Azad Medical College), DM Neurology (AIIMS), Research Fellow (Johns Hopkins)",
+    "availability": {
+      "Monday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "02:00 PM", "04:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "03:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Friday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "10:00 AM", "12:00 PM", "02:00 PM", "05:00 PM", "07:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 9, "name": "Dr. Lakshmi Reddy", "specialization": "Endocrinologist",
+    "clinic": "Diabetes & Thyroid Center", "address": "22 Sugar Lane, Banjara Hills, Hyderabad",
+    "phone": "+91-9966778899", "email": "lakshmi.reddy@endo.com",
+    "location": "Hyderabad", "distance_km": 4.5, "rating": 4.9, "experience_years": 16,
+    "consultation_fee": 1400, "languages": ["English", "Telugu", "Hindi"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Lakshmi+Reddy&background=059669&color=fff&size=200",
+    "about": "Dr. Lakshmi Reddy is one of Hyderabad's top endocrinologists, specializing in diabetes management, thyroid disorders, PCOS-related hormonal issues, and metabolic syndrome. She has managed 10,000+ diabetes patients with exceptional outcomes.",
+    "education": "MBBS (Osmania Medical College), DM Endocrinology (AIIMS), Fellow ADA",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Tuesday":   ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Wednesday": ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Thursday":  ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "05:00 PM"],
+      "Friday":    ["09:00 AM", "10:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "11:00 AM", "01:00 PM", "04:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 10, "name": "Dr. Santosh Kumar", "specialization": "Gastroenterologist",
+    "clinic": "Digestive Health Center", "address": "66 Gut Lane, Civil Lines, Lucknow",
+    "phone": "+91-9812345678", "email": "santosh.kumar@gastro.com",
+    "location": "Lucknow", "distance_km": 3.6, "rating": 4.6, "experience_years": 11,
+    "consultation_fee": 1300, "languages": ["English", "Hindi"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Santosh+Kumar&background=f97316&color=fff&size=200",
+    "about": "Dr. Santosh Kumar is a gastroenterologist with deep expertise in GERD, peptic ulcers, liver diseases, IBS, and endoscopy. He combines clinical acumen with patient-friendly explanations for comprehensive digestive health care.",
+    "education": "MBBS (KGMU Lucknow), DM Gastroenterology (SGPGI)",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Tuesday":   ["10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Wednesday": ["09:00 AM", "10:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Thursday":  ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Friday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["09:00 AM", "11:00 AM", "01:00 PM", "04:00 PM", "06:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 11, "name": "Dr. Kavita Menon", "specialization": "Psychologist",
+    "clinic": "MindWell Therapy Center", "address": "15 Serenity Lane, Indiranagar, Bangalore",
+    "phone": "+91-9876001122", "email": "kavita.menon@mindwell.com",
+    "location": "Bangalore", "distance_km": 2.8, "rating": 4.9, "experience_years": 10,
+    "consultation_fee": 1200, "languages": ["English", "Hindi", "Malayalam"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Kavita+Menon&background=8b5cf6&color=fff&size=200",
+    "about": "Dr. Kavita Menon is a clinical psychologist specializing in anxiety, depression, stress management, PTSD, and cognitive behavioral therapy. She provides a safe and empathetic therapeutic environment for adults and adolescents.",
+    "education": "M.Phil Clinical Psychology (NIMHANS), PhD Psychology (Bangalore University)",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"],
+      "Tuesday":   ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Wednesday": ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Thursday":  ["10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM", "05:00 PM"],
+      "Friday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM"],
+      "Sunday": {
+        "special_slots": ["09:00 AM", "10:00 AM", "12:00 PM", "02:00 PM", "04:00 PM", "06:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 12, "name": "Dr. Aditya Joshi", "specialization": "Orthopedist",
+    "clinic": "Bone & Joint Specialty Hospital", "address": "99 Ortho Road, Deccan, Pune",
+    "phone": "+91-9823456789", "email": "aditya.joshi@ortho.com",
+    "location": "Pune", "distance_km": 3.2, "rating": 4.7, "experience_years": 13,
+    "consultation_fee": 1100, "languages": ["English", "Hindi", "Marathi"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Aditya+Joshi&background=0ea5e9&color=fff&size=200",
+    "about": "Dr. Aditya Joshi is an orthopedic surgeon specializing in sports injuries, joint replacement, arthritis management, and spinal conditions. He has performed 2000+ successful orthopedic surgeries.",
+    "education": "MBBS (BJ Medical College), MS Orthopedics (AFMC Pune), Fellowship Sports Medicine (UK)",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Friday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "09:00 AM", "11:00 AM", "01:00 PM", "03:00 PM", "05:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 13, "name": "Dr. Farah Khan", "specialization": "Allergist",
+    "clinic": "Allergy & Immunology Clinic", "address": "33 Immune Road, Connaught Place, Delhi",
+    "phone": "+91-9811223344", "email": "farah.khan@allergy.com",
+    "location": "Delhi", "distance_km": 4.0, "rating": 4.6, "experience_years": 9,
+    "consultation_fee": 1000, "languages": ["English", "Hindi", "Urdu"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Farah+Khan&background=f43f5e&color=fff&size=200",
+    "about": "Dr. Farah Khan is an allergist and immunologist treating seasonal allergies, drug reactions, food allergies, asthma, and autoimmune conditions. She uses advanced allergy testing and immunotherapy for lasting relief.",
+    "education": "MBBS (MAMC Delhi), MD Immunology (PGI Chandigarh)",
+    "availability": {
+      "Monday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "02:00 PM", "03:00 PM"],
+      "Friday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM"],
+      "Sunday": {
+        "special_slots": ["09:00 AM", "11:00 AM", "01:00 PM", "04:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 14, "name": "Dr. Nikhil Rao", "specialization": "Urologist",
+    "clinic": "Uro-Care Specialty Center", "address": "77 Kidney Road, Jubilee Hills, Hyderabad",
+    "phone": "+91-9933445566", "email": "nikhil.rao@urocare.com",
+    "location": "Hyderabad", "distance_km": 5.0, "rating": 4.7, "experience_years": 11,
+    "consultation_fee": 1300, "languages": ["English", "Telugu", "Hindi"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Nikhil+Rao&background=0891b2&color=fff&size=200",
+    "about": "Dr. Nikhil Rao is a urologist specializing in urinary tract infections, kidney stones, bladder disorders, and prostate health. He uses minimally invasive techniques and is known for patient-centric care.",
+    "education": "MBBS (Osmania Medical College), MCh Urology (NIMS Hyderabad)",
+    "availability": {
+      "Monday":    ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Tuesday":   ["10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Wednesday": ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM"],
+      "Thursday":  ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Friday":    ["09:00 AM", "10:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["08:00 AM", "10:00 AM", "12:00 PM", "02:00 PM", "05:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  },
+  {
+    "id": 15, "name": "Dr. Suman Chatterjee", "specialization": "Psychiatrist",
+    "clinic": "Serenity Mental Health Center", "address": "44 Peace Road, Salt Lake, Kolkata",
+    "phone": "+91-9830112233", "email": "suman.chatterjee@serenity.com",
+    "location": "Kolkata", "distance_km": 3.5, "rating": 4.8, "experience_years": 14,
+    "consultation_fee": 1500, "languages": ["English", "Hindi", "Bengali"],
+    "video_consultation": true, "verified": true,
+    "profile_image": "https://ui-avatars.com/api/?name=Suman+Chatterjee&background=7c3aed&color=fff&size=200",
+    "about": "Dr. Suman Chatterjee is a senior psychiatrist treating depression, anxiety disorders, bipolar disorder, OCD, and schizophrenia. He combines pharmacotherapy with psychotherapy for holistic mental healthcare.",
+    "education": "MBBS (NRS Medical College), MD Psychiatry (NIMHANS), DPM",
+    "availability": {
+      "Monday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"],
+      "Tuesday":   ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
+      "Wednesday": ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Thursday":  ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM", "05:00 PM"],
+      "Friday":    ["10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM"],
+      "Saturday":  ["09:00 AM", "10:00 AM", "11:00 AM"],
+      "Sunday": {
+        "special_slots": ["09:00 AM", "10:00 AM", "12:00 PM", "02:00 PM", "04:00 PM", "06:00 PM"],
+        "slot_type": "priority"
+      }
+    }
+  }
+]

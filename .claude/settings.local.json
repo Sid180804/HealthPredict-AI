@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(python -m pip install \"python-dotenv>=1.0.0\" --quiet)",
+      "Bash(curl -s -X POST http://localhost:5001/chat -H \"Content-Type: application/json\" -d '{\"message\":\"मुझे सिरदर्द और थकान है\",\"history\":[],\"language\":\"auto\"}')",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('lang:',d['detected_language'],'| source:',d['source']\\); print\\(d['response'][:300]\\)\")",
+      "Bash(curl -s -X POST http://localhost:5001/chat -H \"Content-Type: application/json\" -d '{\"message\":\"I am having severe chest pain and cannot breathe\",\"history\":[],\"language\":\"auto\"}')",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('emergency:',d['is_emergency'],'| source:',d['source']\\); print\\(d['response'][:300]\\)\")"
+    ]
+  }
+}
