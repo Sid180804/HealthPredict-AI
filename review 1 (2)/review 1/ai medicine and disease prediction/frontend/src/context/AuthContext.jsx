@@ -1,9 +1,9 @@
 import React, { createContext, useState, useContext, useEffect, useMemo, useCallback } from "react";
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
-// localStorage keys — single source of truth
+// localStorage keys ï¿½ single source of truth
 const LS_TOKEN = "auth_token";
 const LS_ROLE  = "auth_role";
 const LS_USER  = "auth_user";
@@ -25,7 +25,7 @@ function restoreSession() {
       const user = JSON.parse(raw);
       return { token, user };
     }
-  } catch { /* corrupted storage — will be wiped on logout */ }
+  } catch { /* corrupted storage ï¿½ will be wiped on logout */ }
   return { token: null, user: null };
 }
 
@@ -70,7 +70,7 @@ export function AuthProvider({ children }) {
         localStorage.setItem(LS_USER, JSON.stringify(freshUser));
       })
       .catch(() => {
-        // Token rejected by server — clear everything
+        // Token rejected by server ï¿½ clear everything
         _resetState();
         clearSession();
       })
@@ -130,7 +130,7 @@ export function AuthProvider({ children }) {
       return { success: false, error: res.data?.error || "Registration failed" };
     } catch (err) {
       const msg = err.response?.data?.error
-        || (err.code === "ERR_NETWORK" ? "Cannot reach server — is the backend running?" : err.message);
+        || (err.code === "ERR_NETWORK" ? "Cannot reach server ï¿½ is the backend running?" : err.message);
       return { success: false, error: msg };
     }
   }, []);
@@ -155,7 +155,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   /**
-   * setSession — hydrate AuthContext from any externally-obtained token + user.
+   * setSession ï¿½ hydrate AuthContext from any externally-obtained token + user.
    * Used by login pages that call a different backend (e.g. Flask on port 5002)
    * instead of going through the Node AuthContext.login() path.
    */

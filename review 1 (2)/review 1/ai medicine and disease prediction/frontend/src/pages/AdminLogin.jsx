@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 
-const FLASK_AUTH = import.meta.env.VITE_API_BASE;
+const FLASK_AUTH = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 const ALLOWED_ADMINS = [
   'tomarsiddhanttomar@gmail.com',
   'shivanshthakra0311@gmail.com',
@@ -173,7 +173,7 @@ export default function AdminLogin() {
             <span style={{
               fontSize: 11, fontWeight: 700, color: '#6d28d9',
               letterSpacing: '.08em', textTransform: 'uppercase',
-            }}>Restricted Access Zone — Authorized Personnel Only</span>
+            }}>Restricted Access Zone ï¿½ Authorized Personnel Only</span>
           </div>
 
           {error && (
@@ -239,7 +239,7 @@ export default function AdminLogin() {
                   boxShadow: '0 4px 6px -1px rgba(124,58,237,.22)',
                 }}
               >
-                {loading ? 'Verifying Access…' : <>Access Admin Panel <IconArrowR size={14}/></>}
+                {loading ? 'Verifying Accessï¿½' : <>Access Admin Panel <IconArrowR size={14}/></>}
               </button>
 
               <button
@@ -277,7 +277,7 @@ export default function AdminLogin() {
                 show={showNewPass}
                 setShow={setShowNewPass}
                 placeholder="Min 6 characters"
-                hint="Store this somewhere safe — there is no reset flow."
+                hint="Store this somewhere safe ï¿½ there is no reset flow."
               />
               <div className="hp-field">
                 <label>Confirm Password</label>
@@ -307,7 +307,7 @@ export default function AdminLogin() {
                   boxShadow: '0 4px 6px -1px rgba(124,58,237,.22)',
                 }}
               >
-                {loading ? 'Creating…' : <>Create Password <IconArrowR size={14}/></>}
+                {loading ? 'Creatingï¿½' : <>Create Password <IconArrowR size={14}/></>}
               </button>
 
               <button

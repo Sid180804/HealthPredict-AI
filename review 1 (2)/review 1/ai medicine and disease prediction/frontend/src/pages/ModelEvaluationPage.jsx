@@ -3,7 +3,7 @@ import axios from "axios";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import Header from "../components/Header";
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 export default function ModelEvaluationPage() {
   const [metrics, setMetrics] = useState(null);

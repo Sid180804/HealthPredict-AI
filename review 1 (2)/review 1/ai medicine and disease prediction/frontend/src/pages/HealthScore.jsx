@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import useIsDark from '../hooks/useIsDark';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const DIET_PREFS = [
   { value: 'vegetarian', label: 'Vegetarian' },

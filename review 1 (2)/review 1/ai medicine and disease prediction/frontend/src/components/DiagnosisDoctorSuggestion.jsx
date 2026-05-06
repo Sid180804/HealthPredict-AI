@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import DoctorCard from './DoctorCard';
 import AppointmentModal from './AppointmentModal';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 export default function DiagnosisDoctorSuggestion({ disease, severity, symptoms = [] }) {
   const navigate = useNavigate();

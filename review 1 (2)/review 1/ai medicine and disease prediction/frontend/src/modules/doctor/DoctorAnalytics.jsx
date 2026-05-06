@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const ML_API = import.meta.env.VITE_API_BASE;
+const ML_API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 function StatCard({ icon, label, value, sub, color = '#059669', trend }) {
   return (

@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import useIsDark from '../hooks/useIsDark';
 import { useAuth } from '../context/AuthContext';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const TYPE_CONFIG = {
   prediction:  { icon: '??', color: '#059669', label: 'Prediction' },

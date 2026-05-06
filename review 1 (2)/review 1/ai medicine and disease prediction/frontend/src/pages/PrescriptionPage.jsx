@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import Header from "../components/Header";
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 export default function PrescriptionPage() {
   const { token } = useAuth();
@@ -176,7 +176,7 @@ export default function PrescriptionPage() {
                   display: "inline-flex", background: "#f1f5f9", padding: "0.4rem 1rem",
                   borderRadius: 20, fontSize: "0.75rem", fontWeight: 600, color: "#475569", gap: "0.5rem"
                 }}>
-                  <span>JPG</span><span>•</span><span>PNG</span>
+                  <span>JPG</span><span>ï¿½</span><span>PNG</span>
                 </div>
               </label>
             </div>

@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 const PRESCRIPTION_ENDPOINT = `${API_BASE}/api/ai/prescription`;
 
 const EMPTY_MED = { name: "", dosage: "", frequency: "", duration: "", instructions: "" };
@@ -45,14 +45,14 @@ export default function OCR() {
     if (!file) return;
     setLoading(true); setError(""); setResult(null); setMeds([]);
     setMeta({ doctor_name: "", hospital_name: "", patient_name: "", date: "", notes: "" });
-    setStatus("Uploading…");
+    setStatus("Uploadingï¿½");
     setPreview(URL.createObjectURL(file));
 
     try {
       const formData = new FormData();
       formData.append("image", file);
       formData.append("file", file);
-      setStatus("Enhancing image & extracting with GPT-4o…");
+      setStatus("Enhancing image & extracting with GPT-4oï¿½");
       const res = await fetch(PRESCRIPTION_ENDPOINT, { method: "POST", body: formData });
       if (!res.ok) {
         const errJson = await res.json().catch(() => ({}));
@@ -126,10 +126,10 @@ export default function OCR() {
       <div className="hp-fade-up" style={{ maxWidth: 1280, margin: "0 auto", padding: "32px 32px 48px" }}>
         {/* Eyebrow + hero heading */}
         <div style={{ marginBottom: 24 }}>
-          <div className="hp-eyebrow">Pharmacy · AI Prescription Extraction</div>
+          <div className="hp-eyebrow">Pharmacy ï¿½ AI Prescription Extraction</div>
           <h1 className="hp-sh" style={{ fontSize: 32, marginTop: 6 }}>Prescription Scanner</h1>
           <p style={{ color: "#64748b", fontSize: 14, marginTop: 4, maxWidth: 720 }}>
-            Upload a prescription — handwritten, printed, multilingual, or blurry. Powered by GPT-4o Vision
+            Upload a prescription ï¿½ handwritten, printed, multilingual, or blurry. Powered by GPT-4o Vision
             with OpenCV preprocessing and a Tesseract safety net. Edit any field before ordering.
           </p>
         </div>
@@ -167,7 +167,7 @@ export default function OCR() {
                   borderRadius: 9999,
                   fontSize: 11, fontWeight: 700, color: "#475569",
                 }}>
-                  <span>JPG</span><span>·</span><span>PNG</span><span>·</span><span>WEBP</span>
+                  <span>JPG</span><span>ï¿½</span><span>PNG</span><span>ï¿½</span><span>WEBP</span>
                 </div>
               </label>
             </div>
@@ -210,9 +210,9 @@ export default function OCR() {
                   <div style={{ marginTop: 10, fontSize: 12, color: "#64748b" }}>
                     Method: <b style={{ color: "#0f172a" }}>{methodLabel}</b>
                     {typeof result.confidence === "number" && (
-                      <> · Confidence: <b style={{ color: "#0f172a" }}>{Math.round(result.confidence * 100)}%</b></>
+                      <> ï¿½ Confidence: <b style={{ color: "#0f172a" }}>{Math.round(result.confidence * 100)}%</b></>
                     )}
-                    {result.low_confidence && <> · <span style={{ color: "#d97706" }}>low confidence — please verify</span></>}
+                    {result.low_confidence && <> ï¿½ <span style={{ color: "#d97706" }}>low confidence ï¿½ please verify</span></>}
                   </div>
                 )}
               </div>
@@ -259,11 +259,11 @@ export default function OCR() {
                   </div>
                   <div style={{ flex: 1 }}>
                     <h3 className="hp-sh" style={{ fontSize: 17 }}>
-                      {hasMeds ? "Extraction Complete — Edit Before Ordering" : "No Medicines Detected"}
+                      {hasMeds ? "Extraction Complete ï¿½ Edit Before Ordering" : "No Medicines Detected"}
                     </h3>
                     <p style={{ fontSize: 12.5, color: "#64748b", margin: "2px 0 0" }}>
                       {hasMeds
-                        ? `${meds.length} medicine${meds.length === 1 ? "" : "s"} identified · edit any field below`
+                        ? `${meds.length} medicine${meds.length === 1 ? "" : "s"} identified ï¿½ edit any field below`
                         : "Try a sharper image, or add medicines manually."}
                     </p>
                   </div>
@@ -323,7 +323,7 @@ export default function OCR() {
                             padding: 24, textAlign: "center",
                             color: "#64748b", fontSize: 13,
                           }}>
-                            No medicines — click &quot;Add Row&quot; to enter them manually.
+                            No medicines ï¿½ click &quot;Add Row&quot; to enter them manually.
                           </td>
                         </tr>
                       )}
@@ -360,7 +360,7 @@ export default function OCR() {
                             <button onClick={() => removeMed(i)} title="Remove" style={{
                               background: "transparent", color: "#dc2626", border: "none",
                               cursor: "pointer", fontSize: 18, padding: "4px 8px",
-                            }}>×</button>
+                            }}>ï¿½</button>
                           </td>
                         </tr>
                       ))}

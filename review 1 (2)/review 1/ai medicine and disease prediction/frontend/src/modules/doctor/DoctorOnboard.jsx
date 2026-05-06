@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const SPECIALIZATIONS = [
   'General Physician','Cardiologist','Dermatologist','Endocrinologist',
@@ -136,7 +136,7 @@ export default function DoctorOnboard() {
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f1f5f9', fontFamily: "'Inter',sans-serif" }}>
       <div style={{ textAlign: 'center' }}>
         <div style={{ width: 40, height: 40, border: '3px solid #e2e8f0', borderTopColor: '#7c3aed', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto' }} />
-        <p style={{ color: '#64748b', marginTop: '1rem', fontSize: '0.875rem' }}>Loading your profile…</p>
+        <p style={{ color: '#64748b', marginTop: '1rem', fontSize: '0.875rem' }}>Loading your profileï¿½</p>
         <style>{`@keyframes spin{100%{transform:rotate(360deg)}}`}</style>
       </div>
     </div>
@@ -158,7 +158,7 @@ export default function DoctorOnboard() {
           <div style={{ background: '#fff', borderRadius: 20, padding: '2.5rem', textAlign: 'center', maxWidth: 360, boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}>
             <div style={{ width: 60, height: 60, background: '#ecfdf5', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', fontSize: '1.75rem' }}>?</div>
             <h3 style={{ margin: '0 0 0.5rem', fontWeight: 900, color: '#0f172a', fontFamily: "'Outfit',sans-serif", fontSize: '1.25rem' }}>Profile Saved!</h3>
-            <p style={{ color: '#64748b', margin: 0, fontSize: '0.875rem' }}>Redirecting to your dashboard…</p>
+            <p style={{ color: '#64748b', margin: 0, fontSize: '0.875rem' }}>Redirecting to your dashboardï¿½</p>
           </div>
         </div>
       )}
@@ -188,7 +188,7 @@ export default function DoctorOnboard() {
           </div>
           <button onClick={handleSave} disabled={loading}
             style={{ padding: '0.6rem 1.4rem', background: loading ? '#c4b5fd' : 'linear-gradient(135deg,#7c3aed,#6d28d9)', color: '#fff', border: 'none', borderRadius: 10, fontWeight: 700, fontSize: '0.875rem', cursor: loading ? 'not-allowed' : 'pointer', boxShadow: '0 4px 14px rgba(124,58,237,0.35)' }}>
-            {loading ? 'Saving…' : 'Save Changes'}
+            {loading ? 'Savingï¿½' : 'Save Changes'}
           </button>
         </div>
       </div>
@@ -215,7 +215,7 @@ export default function DoctorOnboard() {
             <div style={{ gridColumn: 'span 2' }}>
               <label style={labelStyle}>Specialization *</label>
               <select value={form.specialization} onChange={e => set('specialization', e.target.value)} style={inputStyle}>
-                <option value="">Select your specialization…</option>
+                <option value="">Select your specializationï¿½</option>
                 {SPECIALIZATIONS.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
@@ -336,7 +336,7 @@ export default function DoctorOnboard() {
           </button>
           <button onClick={handleSave} disabled={loading}
             style={{ padding: '0.875rem 2rem', background: loading ? '#c4b5fd' : 'linear-gradient(135deg,#7c3aed,#6d28d9)', color: '#fff', border: 'none', borderRadius: 12, fontWeight: 700, fontSize: '0.9rem', cursor: loading ? 'not-allowed' : 'pointer', boxShadow: '0 6px 20px rgba(124,58,237,0.35)' }}>
-            {loading ? 'Saving Profile…' : 'Save Profile Changes'}
+            {loading ? 'Saving Profileï¿½' : 'Save Profile Changes'}
           </button>
         </div>
       </div>

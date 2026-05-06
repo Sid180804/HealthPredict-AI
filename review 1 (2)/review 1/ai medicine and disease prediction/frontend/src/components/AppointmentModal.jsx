@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useIsDark from '../hooks/useIsDark';
 import { useAuth } from '../context/AuthContext';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 export default function AppointmentModal({ doctor, onClose, disease = '', symptoms = [], severity = '' }) {
   const isDark = useIsDark();
@@ -90,7 +90,7 @@ export default function AppointmentModal({ doctor, onClose, disease = '', sympto
         });
       }
     } catch (err) {
-      setBookingResult({ success: false, error: 'Network error — please check your connection and try again.' });
+      setBookingResult({ success: false, error: 'Network error ï¿½ please check your connection and try again.' });
     }
     setBookingLoading(false);
   };
@@ -176,7 +176,7 @@ export default function AppointmentModal({ doctor, onClose, disease = '', sympto
                 <h2 style={{ margin: '0 0 0.25rem', fontWeight: 900, color: C.text, fontFamily: "'Outfit',sans-serif", fontSize: '1.2rem' }}>Book Appointment</h2>
                 <p style={{ margin: 0, color: C.sub, fontSize: '0.82rem' }}>with {doctor.name}</p>
               </div>
-              <button onClick={onClose} style={{ background: C.inner, border: `1px solid ${C.inBdr}`, width: 32, height: 32, borderRadius: '50%', fontSize: '1.1rem', color: C.sub, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
+              <button onClick={onClose} style={{ background: C.inner, border: `1px solid ${C.inBdr}`, width: 32, height: 32, borderRadius: '50%', fontSize: '1.1rem', color: C.sub, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>ï¿½</button>
             </div>
 
             {/* Doctor summary */}
@@ -188,7 +188,7 @@ export default function AppointmentModal({ doctor, onClose, disease = '', sympto
                   {doctor.verified && <span style={{ fontSize: '0.55rem', fontWeight: 700, padding: '0.08rem 0.3rem', borderRadius: 4, background: '#ecfdf5', color: '#059669' }}>?? Verified</span>}
                 </div>
                 <div style={{ fontSize: '0.75rem', color: '#059669', fontWeight: 600 }}>{doctor.specialization}</div>
-                <div style={{ fontSize: '0.72rem', color: C.sub }}>{doctor.clinic} · ?{doctor.consultation_fee} · {doctor.experience_years}y exp</div>
+                <div style={{ fontSize: '0.72rem', color: C.sub }}>{doctor.clinic} ï¿½ ?{doctor.consultation_fee} ï¿½ {doctor.experience_years}y exp</div>
               </div>
             </div>
 
@@ -392,11 +392,11 @@ export default function AppointmentModal({ doctor, onClose, disease = '', sympto
                   {isSundaySelected ? '? Priority Booking Summary' : 'Booking Summary'}
                 </div>
                 <div style={{ fontSize: '0.85rem', color: C.text, fontWeight: 600 }}>
-                  <strong>{doctor.name}</strong> — {new Date(selectedDate + 'T12:00:00').toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' })} at <strong>{selectedTime}</strong>
+                  <strong>{doctor.name}</strong> ï¿½ {new Date(selectedDate + 'T12:00:00').toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' })} at <strong>{selectedTime}</strong>
                 </div>
                 <div style={{ fontSize: '0.78rem', color: C.sub, marginTop: '0.2rem' }}>
-                  {consultType === 'video' ? '?? Video' : consultType === 'chat' ? '?? Chat' : '?? Clinic'} · ?{doctor.consultation_fee}
-                  {isSundaySelected && ' · ?? Priority Slot'}
+                  {consultType === 'video' ? '?? Video' : consultType === 'chat' ? '?? Chat' : '?? Clinic'} ï¿½ ?{doctor.consultation_fee}
+                  {isSundaySelected && ' ï¿½ ?? Priority Slot'}
                 </div>
               </div>
             )}

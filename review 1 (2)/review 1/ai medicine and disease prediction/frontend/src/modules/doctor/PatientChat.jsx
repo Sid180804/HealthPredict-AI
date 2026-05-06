@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const ML_API = import.meta.env.VITE_API_BASE;
+const ML_API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 export default function PatientChat({ appointment, doctorName, onClose }) {
   const [messages, setMessages] = useState([]);
@@ -67,7 +67,7 @@ export default function PatientChat({ appointment, doctorName, onClose }) {
           <div style={{ flex: 1 }}>
             <p style={{ margin: 0, color: '#fff', fontWeight: 700, fontSize: '0.9rem' }}>{appointment?.user_name || 'Patient'}</p>
             <p style={{ margin: 0, color: 'rgba(255,255,255,0.5)', fontSize: '0.72rem' }}>
-              {appointment?.disease || 'Consultation'} · #{appointment?.booking_id}
+              {appointment?.disease || 'Consultation'} ï¿½ #{appointment?.booking_id}
             </p>
           </div>
           <button onClick={onClose} style={{ background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: 8, width: 32, height: 32, cursor: 'pointer', color: '#fff', fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>?</button>

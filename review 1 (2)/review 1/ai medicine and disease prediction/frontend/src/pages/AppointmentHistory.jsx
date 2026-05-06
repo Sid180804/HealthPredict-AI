@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import useIsDark from '../hooks/useIsDark';
 import { useAuth } from '../context/AuthContext';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const STATUS_CFG = {
   confirmed: { color: '#059669', bg: '#ecfdf5', border: '#bbf7d0', label: 'Confirmed', icon: '?' },
@@ -76,7 +76,7 @@ export default function AppointmentHistory() {
       }
       fetchAppointments();
     } catch (err) {
-      setError('Network error — could not cancel appointment. Please try again.');
+      setError('Network error ï¿½ could not cancel appointment. Please try again.');
     }
     setCancellingId(null);
   };
@@ -224,8 +224,8 @@ export default function AppointmentHistory() {
                           {appt.clinic && <span style={{ color: C.sub, fontWeight: 500 }}> &middot; {appt.clinic}</span>}
                         </div>
                         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', fontSize: '0.76rem', color: C.sub }}>
-                          <span>?? {appt.date ? new Date(appt.date + 'T12:00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) : '—'}</span>
-                          <span>?? {appt.time || '—'}</span>
+                          <span>?? {appt.date ? new Date(appt.date + 'T12:00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) : 'ï¿½'}</span>
+                          <span>?? {appt.time || 'ï¿½'}</span>
                           <span>?? ?{appt.consultation_fee || 0}</span>
                           <span>{appt.consultation_type === 'video' ? '?? Video' : appt.consultation_type === 'chat' ? '?? Chat' : '?? Clinic'}</span>
                         </div>

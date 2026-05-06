@@ -37,7 +37,7 @@ export default function Orders() {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_API_BASE}/api/orders/user/${MOCK_USER_ID}`);
+            const res = await axios.get(`${(import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com')}/api/orders/user/${MOCK_USER_ID}`);
             setOrders(res.data.orders.reverse());
         } catch (err) {
             console.error("Failed to fetch orders", err);
@@ -47,7 +47,7 @@ export default function Orders() {
     const handlePlaceOrder = async () => {
         setLoading(true);
         try {
-            await axios.post(`${import.meta.env.VITE_API_BASE}/api/orders`, {
+            await axios.post(`${(import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com')}/api/orders`, {
                 userId: MOCK_USER_ID,
                 medicines: medicines,
                 address: "123 Health St, Wellness City",

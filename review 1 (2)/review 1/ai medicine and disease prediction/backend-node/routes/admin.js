@@ -1,14 +1,98 @@
 const express          = require('express');
 const router           = express.Router();
 const axios            = require('axios');
+const bcrypt           = require('bcryptjs');
+const jwt              = require('jsonwebtoken');
+const db               = require('../db');
 const { authenticate, authorize } = require('../middleware/auth');
-const { ROLES }        = require('../config/constants');
+const { ROLES, JWT_SECRET, JWT_EXPIRY } = require('../config/constants');
 const adminCtrl        = require('../controllers/adminController');
 
 const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://127.0.0.1:5001';
+const ALLOWED_ADMINS = new Set([
+    'tomarsiddhanttomar@gmail.com',
+    'shivanshthakra0311@gmail.com',
+]);
+const genId = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
+const genToken = (user) => jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, { expiresIn: JWT_EXPIRY });
+const safe = (user) => {
+    const { password, ...rest } = user;
+    return rest;
+};
 
 // Every auth-guarded admin route requires a valid JWT + admin role
 const guard = [authenticate, authorize(ROLES.ADMIN)];
+
+// ── Admin auth routes used by the Vercel frontend ──────────────────────────
+router.post('/set-password', async (req, res) => {
+    try {
+        const email = (req.body.email || '').trim().toLowerCase();
+        const password = req.body.password || '';
+
+        if (!ALLOWED_ADMINS.has(email)) {
+            return res.status(403).json({ message: 'Unauthorized admin email' });
+        }
+        if (password.length < 6) {
+            return res.status(400).json({ message: 'Password must be at least 6 characters.' });
+        }
+
+        const hashed = await bcrypt.hash(password, 10);
+        const existing = db.users.get('users').find({ email }).value();
+        if (existing) {
+            db.users.get('users').find({ email }).assign({
+                password: hashed,
+                role: ROLES.ADMIN,
+                name: existing.name || 'Admin',
+            }).write();
+        } else {
+            db.users.get('users').push({
+                id: genId(),
+                name: 'Admin',
+                email,
+                password: hashed,
+                role: ROLES.ADMIN,
+                createdAt: new Date().toISOString(),
+            }).write();
+        }
+
+        res.json({ message: 'Password created successfully' });
+    } catch (err) {
+        console.error('Admin set-password error:', err);
+        res.status(500).json({ message: 'Failed to create admin password' });
+    }
+});
+
+router.post('/login', async (req, res) => {
+    try {
+        const email = (req.body.email || '').trim().toLowerCase();
+        const password = req.body.password || '';
+
+        if (!ALLOWED_ADMINS.has(email)) {
+            return res.status(403).json({ message: 'Unauthorized admin email' });
+        }
+
+        const user = db.users.get('users').find({ email }).value();
+        if (!user || user.role !== ROLES.ADMIN || !user.password) {
+            return res.status(401).json({ message: 'Please create password first' });
+        }
+
+        const ok = await bcrypt.compare(password, user.password);
+        if (!ok) {
+            return res.status(401).json({ success: false, message: 'Invalid password' });
+        }
+
+        res.json({
+            success: true,
+            message: 'Admin login successful',
+            role: ROLES.ADMIN,
+            token: genToken(user),
+            admin: safe(user),
+        });
+    } catch (err) {
+        console.error('Admin login error:', err);
+        res.status(500).json({ message: 'Admin login failed' });
+    }
+});
 
 // ── Auth-guarded Node/lowdb routes ──────────────────────────────────────────
 router.get('/stats',                 ...guard, adminCtrl.getStats);

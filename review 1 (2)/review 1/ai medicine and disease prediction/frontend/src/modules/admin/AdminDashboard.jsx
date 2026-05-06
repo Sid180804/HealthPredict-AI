@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useAuth } from "../../context/AuthContext";
 
-const API = `${import.meta.env.VITE_API_BASE}/api/admin`;
+const API = `${(import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com')}/api/admin`;
 
 const token = () => localStorage.getItem("auth_token");
 const authHeaders = () => ({ "Content-Type": "application/json", Authorization: `Bearer ${token()}` });
@@ -18,7 +18,7 @@ function StatCard({ label, value, icon, color = "#059669", sub }) {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
         <div>
           <p style={{ fontSize: "0.78rem", color: "#64748b", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", margin: 0 }}>{label}</p>
-          <p style={{ fontSize: "2rem", fontWeight: 800, color: "#0f172a", margin: "0.25rem 0 0" }}>{value ?? "—"}</p>
+          <p style={{ fontSize: "2rem", fontWeight: 800, color: "#0f172a", margin: "0.25rem 0 0" }}>{value ?? "ï¿½"}</p>
           {sub && <p style={{ fontSize: "0.78rem", color: "#94a3b8", margin: "0.2rem 0 0" }}>{sub}</p>}
         </div>
         <div style={{
@@ -212,7 +212,7 @@ export default function AdminDashboard() {
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f8fafc" }}>
       <div style={{ textAlign: "center" }}>
         <div style={{ width: 44, height: 44, border: "3px solid #e2e8f0", borderTopColor: "#059669", borderRadius: "50%", animation: "spin 0.8s linear infinite", margin: "0 auto" }} />
-        <p style={{ color: "#64748b", marginTop: "1rem", fontSize: "0.9rem" }}>Loading dashboard…</p>
+        <p style={{ color: "#64748b", marginTop: "1rem", fontSize: "0.9rem" }}>Loading dashboardï¿½</p>
         <style>{`@keyframes spin{100%{transform:rotate(360deg)}}`}</style>
       </div>
     </div>
@@ -245,12 +245,12 @@ export default function AdminDashboard() {
             This will notify the doctor that their application was not approved.
           </p>
           <FieldLabel>Reason (optional)</FieldLabel>
-          <FieldTextarea value={rejectReason} onChange={e => setRejectReason(e.target.value)} placeholder="e.g. Incomplete credentials…" rows={3} />
+          <FieldTextarea value={rejectReason} onChange={e => setRejectReason(e.target.value)} placeholder="e.g. Incomplete credentialsï¿½" rows={3} />
           <div style={{ display: "flex", gap: "0.75rem", marginTop: "0.5rem" }}>
             <button onClick={() => { setRejectModal(null); setRejectReason(""); }}
               style={{ flex: 1, padding: "0.75rem", border: "1.5px solid #e2e8f0", borderRadius: 10, background: "#fff", color: "#475569", fontWeight: 600, cursor: "pointer", fontSize: "0.9rem" }}>Cancel</button>
             <PrimaryBtn danger onClick={handleReject} disabled={!!actionLoading} style={{ flex: 1 }}>
-              {actionLoading ? "Rejecting…" : "Reject Doctor"}
+              {actionLoading ? "Rejectingï¿½" : "Reject Doctor"}
             </PrimaryBtn>
           </div>
         </Modal>
@@ -523,7 +523,7 @@ export default function AdminDashboard() {
                           {(vStatus === "pending" || vStatus == null) && (
                             <>
                               <PrimaryBtn small onClick={() => handleVerify(docId)} disabled={actionLoading === docId + "_verify"}>
-                                {actionLoading === docId + "_verify" ? "Approving…" : "? Approve"}
+                                {actionLoading === docId + "_verify" ? "Approvingï¿½" : "? Approve"}
                               </PrimaryBtn>
                               <button onClick={() => setRejectModal({ doctorId: docId, name: doc.name || d.name })}
                                 style={{ padding: "0.6rem 1.1rem", borderRadius: 9, border: "1.5px solid #fecaca", background: "#fef2f2", color: "#dc2626", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer" }}>? Reject</button>
@@ -555,7 +555,7 @@ export default function AdminDashboard() {
                   style={{ position: "absolute", left: "0.875rem", top: "50%", transform: "translateY(-50%)" }}>
                   <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
                 </svg>
-                <input type="text" placeholder="Search by name or email…" value={userSearch} onChange={e => setUserSearch(e.target.value)}
+                <input type="text" placeholder="Search by name or emailï¿½" value={userSearch} onChange={e => setUserSearch(e.target.value)}
                   style={{ width: "100%", padding: "0.7rem 0.875rem 0.7rem 2.5rem", border: "1.5px solid #e2e8f0", borderRadius: 10, fontSize: "0.875rem", outline: "none", color: "#0f172a", background: "#fff", boxSizing: "border-box" }} />
               </div>
               <div style={{ background: "#fff", borderRadius: 14, border: "1px solid #f1f5f9", boxShadow: "0 1px 4px rgba(0,0,0,0.06)", overflow: "hidden" }}>
@@ -580,10 +580,10 @@ export default function AdminDashboard() {
                         </td>
                         <td style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "#475569" }}>{u.email}</td>
                         <td style={{ padding: "1rem 1.25rem" }}><Badge status={u.role} /></td>
-                        <td style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "#64748b" }}>{u.city || "—"}</td>
-                        <td style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "#64748b" }}>{u.age || "—"}</td>
+                        <td style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "#64748b" }}>{u.city || "ï¿½"}</td>
+                        <td style={{ padding: "1rem 1.25rem", fontSize: "0.875rem", color: "#64748b" }}>{u.age || "ï¿½"}</td>
                         <td style={{ padding: "1rem 1.25rem", fontSize: "0.8rem", color: "#94a3b8" }}>
-                          {u.createdAt ? new Date(u.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "—"}
+                          {u.createdAt ? new Date(u.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "ï¿½"}
                         </td>
                       </tr>
                     ))}
@@ -729,13 +729,13 @@ function AppointmentsTab() {
               <tr><td colSpan={7} style={{ textAlign: "center", padding: "3rem", color: "#94a3b8" }}>No appointments found</td></tr>
             ) : filtered.slice(0, 50).map((a, i) => (
               <tr key={a.booking_id || i} style={{ borderBottom: "1px solid #f8fafc" }}>
-                <td style={{ padding: "0.75rem 1rem", fontSize: "0.85rem", fontWeight: 600, color: "#0f172a" }}>{a.user_name || "—"}</td>
-                <td style={{ padding: "0.75rem 1rem", fontSize: "0.85rem", color: "#475569" }}>{a.doctor_name || "—"}</td>
-                <td style={{ padding: "0.75rem 1rem", fontSize: "0.85rem", color: "#475569" }}>{a.disease || "—"}</td>
-                <td style={{ padding: "0.75rem 1rem", fontSize: "0.82rem", color: "#64748b" }}>{a.date || "—"}</td>
-                <td style={{ padding: "0.75rem 1rem", fontSize: "0.82rem", color: "#64748b" }}>{a.time || "—"}</td>
+                <td style={{ padding: "0.75rem 1rem", fontSize: "0.85rem", fontWeight: 600, color: "#0f172a" }}>{a.user_name || "ï¿½"}</td>
+                <td style={{ padding: "0.75rem 1rem", fontSize: "0.85rem", color: "#475569" }}>{a.doctor_name || "ï¿½"}</td>
+                <td style={{ padding: "0.75rem 1rem", fontSize: "0.85rem", color: "#475569" }}>{a.disease || "ï¿½"}</td>
+                <td style={{ padding: "0.75rem 1rem", fontSize: "0.82rem", color: "#64748b" }}>{a.date || "ï¿½"}</td>
+                <td style={{ padding: "0.75rem 1rem", fontSize: "0.82rem", color: "#64748b" }}>{a.time || "ï¿½"}</td>
                 <td style={{ padding: "0.75rem 1rem" }}><Badge status={a.status || "pending"} /></td>
-                <td style={{ padding: "0.75rem 1rem" }}>{a.severity ? <Badge status={["urgent","critical","high"].includes((a.severity||"").toLowerCase()) ? "failed" : "success"} /> : "—"}</td>
+                <td style={{ padding: "0.75rem 1rem" }}>{a.severity ? <Badge status={["urgent","critical","high"].includes((a.severity||"").toLowerCase()) ? "failed" : "success"} /> : "ï¿½"}</td>
               </tr>
             ))}
           </tbody>
@@ -777,7 +777,7 @@ function AIAnalyticsTab() {
     <div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
         <StatCard label="Total Predictions" value={data.total_predictions} icon="??" color="#7e22ce" />
-        <StatCard label="Avg Confidence" value={data.avg_confidence ? `${data.avg_confidence}%` : "—"} icon="??" color="#059669" />
+        <StatCard label="Avg Confidence" value={data.avg_confidence ? `${data.avg_confidence}%` : "ï¿½"} icon="??" color="#059669" />
         <StatCard label="Diseases Detected" value={data.top_diseases?.length || 0} icon="??" color="#0ea5e9" />
         <StatCard label="Total Appointments" value={data.total_appointments} icon="??" color="#f59e0b" />
       </div>
@@ -833,7 +833,7 @@ function AIAnalyticsTab() {
           <h3 style={{ margin: "0 0 1rem", fontSize: "1rem", fontWeight: 700, color: "#fff" }}>AI Performance Summary</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem" }}>
             {[
-              { label: "Accuracy Rate", value: data.avg_confidence ? `${Math.min(98, data.avg_confidence + 12)}%` : "—", color: "#34d399" },
+              { label: "Accuracy Rate", value: data.avg_confidence ? `${Math.min(98, data.avg_confidence + 12)}%` : "ï¿½", color: "#34d399" },
               { label: "Predictions Today", value: Math.floor(data.total_predictions * 0.08) || 0, color: "#818cf8" },
               { label: "Unique Diseases", value: data.top_diseases?.length || 0, color: "#fbbf24" },
               { label: "Confidence > 75%", value: data.confidence_distribution?.["76-100"] || 0, color: "#34d399" },
@@ -903,9 +903,9 @@ function EmergencyTab() {
                   </div>
                   <p style={{ margin: 0, fontSize: "0.8rem", color: "#64748b" }}>
                     {c.disease && <span style={{ fontWeight: 600 }}>?? {c.disease}</span>}
-                    {c.doctor_name && <span> · ????? Dr. {c.doctor_name}</span>}
-                    {c.date && <span> · ?? {c.date}</span>}
-                    {c.time && <span> · ?? {c.time}</span>}
+                    {c.doctor_name && <span> ï¿½ ????? Dr. {c.doctor_name}</span>}
+                    {c.date && <span> ï¿½ ?? {c.date}</span>}
+                    {c.time && <span> ï¿½ ?? {c.time}</span>}
                   </p>
                 </div>
                 <Badge status={c.status || "pending"} />
@@ -982,9 +982,9 @@ function MedicinesTab({ showToast }) {
           <FieldLabel>Dosage</FieldLabel>
           <FieldInput value={form.dosage} onChange={e => setForm(f => ({ ...f, dosage: e.target.value }))} placeholder="e.g. 500mg twice daily" />
           <FieldLabel>Description</FieldLabel>
-          <FieldTextarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="What this medicine is used for…" rows={2} />
+          <FieldTextarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="What this medicine is used forï¿½" rows={2} />
           <FieldLabel>Side Effects</FieldLabel>
-          <FieldTextarea value={form.side_effects} onChange={e => setForm(f => ({ ...f, side_effects: e.target.value }))} placeholder="Known side effects…" rows={2} />
+          <FieldTextarea value={form.side_effects} onChange={e => setForm(f => ({ ...f, side_effects: e.target.value }))} placeholder="Known side effectsï¿½" rows={2} />
           <FieldLabel>Category</FieldLabel>
           <select value={form.category} onChange={e => setForm(f => ({ ...f, category: e.target.value }))}
             style={{ width: "100%", padding: "0.7rem", border: "1.5px solid #e2e8f0", borderRadius: 10, fontSize: "0.875rem", outline: "none", color: "#0f172a", background: "#fff", marginBottom: "0.875rem", boxSizing: "border-box" }}>
@@ -1048,7 +1048,7 @@ function FeedbackTab() {
   if (loading) return <Spinner />;
 
   const filtered = filter === "all" ? feedback : feedback.filter(f => f.type === filter);
-  const avgRating = feedback.length > 0 ? (feedback.reduce((s, f) => s + (f.rating || 0), 0) / feedback.length).toFixed(1) : "—";
+  const avgRating = feedback.length > 0 ? (feedback.reduce((s, f) => s + (f.rating || 0), 0) / feedback.length).toFixed(1) : "ï¿½";
 
   return (
     <div>
@@ -1124,7 +1124,7 @@ function SecurityTab() {
   const displayLogs = logs.length > 0 ? logs : [
     { id: "1", action: "Admin Login", user: "admin@healthpredict.com", status: "success", ip: "127.0.0.1", timestamp: new Date().toISOString(), details: "Successful admin authentication" },
     { id: "2", action: "Doctor Verified", user: "admin@healthpredict.com", status: "success", ip: "127.0.0.1", timestamp: new Date(Date.now() - 3600000).toISOString(), details: "Dr. Sharma approved" },
-    { id: "3", action: "Failed Login", user: "unknown@email.com", status: "failed", ip: "192.168.1.45", timestamp: new Date(Date.now() - 7200000).toISOString(), details: "Invalid credentials — 3 attempts" },
+    { id: "3", action: "Failed Login", user: "unknown@email.com", status: "failed", ip: "192.168.1.45", timestamp: new Date(Date.now() - 7200000).toISOString(), details: "Invalid credentials ï¿½ 3 attempts" },
     { id: "4", action: "Password Reset", user: "patient@example.com", status: "success", ip: "192.168.1.100", timestamp: new Date(Date.now() - 86400000).toISOString(), details: "Password reset requested" },
     { id: "5", action: "Settings Updated", user: "admin@healthpredict.com", status: "success", ip: "127.0.0.1", timestamp: new Date(Date.now() - 172800000).toISOString(), details: "Maintenance mode toggled" },
   ];
@@ -1159,7 +1159,7 @@ function SecurityTab() {
                 <td style={{ padding: "0.75rem 1rem", fontSize: "0.82rem", color: "#64748b", fontFamily: "monospace" }}>{l.ip}</td>
                 <td style={{ padding: "0.75rem 1rem", fontSize: "0.8rem", color: "#64748b" }}>{l.details}</td>
                 <td style={{ padding: "0.75rem 1rem", fontSize: "0.78rem", color: "#94a3b8" }}>
-                  {l.timestamp ? new Date(l.timestamp).toLocaleDateString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "—"}
+                  {l.timestamp ? new Date(l.timestamp).toLocaleDateString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "ï¿½"}
                 </td>
               </tr>
             ))}
@@ -1282,7 +1282,7 @@ function SettingsTab({ showToast }) {
             <FieldLabel>Specialization Name *</FieldLabel>
             <FieldInput value={specForm.name} onChange={e => setSpecForm(f => ({ ...f, name: e.target.value }))} placeholder="e.g. Cardiologist" />
             <FieldLabel>Description</FieldLabel>
-            <FieldTextarea value={specForm.description} onChange={e => setSpecForm(f => ({ ...f, description: e.target.value }))} placeholder="Brief description…" rows={2} />
+            <FieldTextarea value={specForm.description} onChange={e => setSpecForm(f => ({ ...f, description: e.target.value }))} placeholder="Brief descriptionï¿½" rows={2} />
             <div style={{ display: "flex", gap: "0.75rem", marginTop: "0.5rem" }}>
               <button onClick={() => setShowSpecModal(false)} style={{ flex: 1, padding: "0.75rem", border: "1.5px solid #e2e8f0", borderRadius: 10, background: "#fff", color: "#475569", fontWeight: 600, cursor: "pointer", fontSize: "0.875rem" }}>Cancel</button>
               <PrimaryBtn onClick={handleSaveSpec} disabled={!specForm.name.trim()} style={{ flex: 1 }}>{editSpec ? "Update" : "Add"}</PrimaryBtn>
@@ -1526,7 +1526,7 @@ function Spinner() {
   return (
     <div style={{ textAlign: "center", padding: "3rem" }}>
       <div style={{ width: 36, height: 36, border: "3px solid #e2e8f0", borderTopColor: "#059669", borderRadius: "50%", animation: "spin 0.8s linear infinite", margin: "0 auto" }} />
-      <p style={{ color: "#94a3b8", marginTop: "0.75rem", fontSize: "0.85rem" }}>Loading…</p>
+      <p style={{ color: "#94a3b8", marginTop: "0.75rem", fontSize: "0.85rem" }}>Loadingï¿½</p>
     </div>
   );
 }

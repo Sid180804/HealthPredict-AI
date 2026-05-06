@@ -14,16 +14,26 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || '')
   .map((origin) => origin.trim())
   .filter(Boolean);
 const corsOrigins = allowedOrigins.length ? allowedOrigins : defaultOrigins;
+const corsOptions = {
+  origin(origin, callback) {
+    const isVercelApp = /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin || '');
+    if (!origin || corsOrigins.includes(origin) || isVercelApp) {
+      return callback(null, true);
+    }
+    return callback(new Error(`Origin not allowed by CORS: ${origin}`));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 204,
+};
 
 const app  = express();
 const PORT = process.env.PORT || 5000;
 
 // ── CORS ────────────────────────────────────────────────────────────────────
-app.use(cors({
-  origin: corsOrigins,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
-}));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // ── Middleware ──────────────────────────────────────────────────────────────
 app.use(express.json({ limit: '50mb' }));

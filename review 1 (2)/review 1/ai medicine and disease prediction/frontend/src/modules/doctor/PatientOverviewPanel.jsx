@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const ML_API = import.meta.env.VITE_API_BASE;
+const ML_API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const SEV_COLORS = { urgent: '#dc2626', high: '#dc2626', critical: '#dc2626', moderate: '#d97706', low: '#059669', normal: '#059669' };
 
@@ -49,7 +49,7 @@ export default function PatientOverviewPanel({ patient, onClose }) {
             <div>
               <h2 style={{ margin: 0, color: '#fff', fontSize: '1.15rem', fontWeight: 800, fontFamily: "'Outfit',sans-serif" }}>{patient.user_name || 'Patient'}</h2>
               <p style={{ margin: '0.15rem 0 0', color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>
-                {patient.user_email || '—'}
+                {patient.user_email || 'ï¿½'}
               </p>
               <div style={{ display: 'flex', gap: '0.4rem', marginTop: '0.4rem' }}>
                 <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '0.12rem 0.45rem', borderRadius: 99, background: `${sevColor}20`, color: sevColor, border: `1px solid ${sevColor}40` }}>
@@ -68,8 +68,8 @@ export default function PatientOverviewPanel({ patient, onClose }) {
           <h3 style={{ margin: '0 0 0.75rem', fontSize: '0.82rem', fontWeight: 800, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Current Appointment</h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
             {[
-              ['?? Date', patient.date || '—'],
-              ['?? Time', patient.time || '—'],
+              ['?? Date', patient.date || 'ï¿½'],
+              ['?? Time', patient.time || 'ï¿½'],
               ['?? Type', patient.consultation_type === 'video' ? '?? Video' : patient.consultation_type === 'chat' ? '?? Chat' : '?? Clinic'],
               ['?? Fee', `?${patient.consultation_fee || 0}`],
             ].map(([label, val]) => (
@@ -138,7 +138,7 @@ export default function PatientOverviewPanel({ patient, onClose }) {
                   <div style={{ position: 'absolute', left: -3, top: 4, width: 10, height: 10, borderRadius: '50%', background: i === 0 ? '#7c3aed' : '#cbd5e1', border: '2px solid #fff' }} />
                   <p style={{ margin: 0, fontSize: '0.78rem', fontWeight: 700, color: '#0f172a' }}>{ev.title}</p>
                   <p style={{ margin: '0.1rem 0 0', fontSize: '0.7rem', color: '#94a3b8' }}>
-                    {ev.detail && <span>{ev.detail} · </span>}
+                    {ev.detail && <span>{ev.detail} ï¿½ </span>}
                     {new Date(ev.timestamp || ev.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                   </p>
                 </div>

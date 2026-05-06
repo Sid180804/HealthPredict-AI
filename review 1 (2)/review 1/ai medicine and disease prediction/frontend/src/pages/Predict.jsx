@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import Header from '../components/Header';
 import DiagnosisDoctorSuggestion from '../components/DiagnosisDoctorSuggestion';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const ZONES = [
   { id: 'head', label: 'Head', icon: '??', cx: 200, cy: 52, r: 38, symptoms: ['Headache', 'Dizziness', 'High Fever', 'Blurred Vision'], desc: 'Head, brain, eyes, ears' },
@@ -45,9 +45,9 @@ const PAIN_TYPES = [
 const DURATIONS = [
   { value: 'just_now', label: 'Just now', emoji: '??' },
   { value: 'hours', label: 'Few hours', emoji: '?' },
-  { value: '1_3_days', label: '1–3 days', emoji: '??' },
-  { value: '4_7_days', label: '4–7 days', emoji: '???' },
-  { value: '1_2_weeks', label: '1–2 weeks', emoji: '??' },
+  { value: '1_3_days', label: '1ï¿½3 days', emoji: '??' },
+  { value: '4_7_days', label: '4ï¿½7 days', emoji: '???' },
+  { value: '1_2_weeks', label: '1ï¿½2 weeks', emoji: '??' },
   { value: 'over_2wks', label: '2+ weeks', emoji: '?' },
 ];
 
@@ -78,7 +78,7 @@ function Popup({ zone, existing, onSave, onClose }) {
             <h2 style={{ fontSize: '1.25rem', fontWeight: 900, color: '#0f172a', margin: 0 }}>{zone.label}</h2>
             <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: '0.2rem 0 0' }}>{zone.desc}</p>
           </div>
-          <button onClick={onClose} style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid #e2e8f0', background: '#f8fafc', color: '#64748b', cursor: 'pointer', fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
+          <button onClick={onClose} style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid #e2e8f0', background: '#f8fafc', color: '#64748b', cursor: 'pointer', fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>ï¿½</button>
         </div>
 
         <p style={{ fontSize: '0.78rem', fontWeight: 900, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '0.6rem' }}>Pain intensity</p>
@@ -287,7 +287,7 @@ export default function Predict() {
       const pl = PAIN_LEVELS.find(p => p.level === a.painLevel);
       const pt = PAIN_TYPES.find(t => t.id === a.painType);
       const d = DURATIONS.find(x => x.value === a.duration);
-      return `${zone?.label}: ${pt?.label} pain (${pl?.label}) for ${d?.label}${a.note ? ` — ${a.note}` : ''}`;
+      return `${zone?.label}: ${pt?.label} pain (${pl?.label}) for ${d?.label}${a.note ? ` ï¿½ ${a.note}` : ''}`;
     }).join('; ');
     const combined = [freeText.trim(), bodyCtx].filter(Boolean).join('. ');
     setLoading(true); setError(''); setResult(null);
@@ -333,10 +333,10 @@ export default function Predict() {
         {/* Progress bar */}
         <div style={{ background: 'white', borderRadius: 16, padding: '1rem 1.5rem', marginBottom: '1.5rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
           <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0f172a' }}>How to use:</span>
-          {[['1??', 'Tap body parts to mark pain'], ['2??', 'Add more symptoms below'], ['3??', 'Hit Analyse — get results!']].map(([n, t], i) => (
+          {[['1??', 'Tap body parts to mark pain'], ['2??', 'Add more symptoms below'], ['3??', 'Hit Analyse ï¿½ get results!']].map(([n, t], i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#475569' }}>{n} {t}</span>
-              {i < 2 && <span style={{ color: '#cbd5e1', fontSize: '1.1rem' }}>›</span>}
+              {i < 2 && <span style={{ color: '#cbd5e1', fontSize: '1.1rem' }}>ï¿½</span>}
             </div>
           ))}
           <div style={{ marginLeft: 'auto', display: 'flex', gap: '0.5rem' }}>
@@ -369,9 +369,9 @@ export default function Predict() {
                         <span style={{ fontSize: 16 }}>{zone?.icon}</span>
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0f172a' }}>{zone?.label}</div>
-                          <div style={{ fontSize: '0.7rem', color: '#64748b' }}>{pt?.emoji} {pt?.label} · {pl.emoji} {pl.label}</div>
+                          <div style={{ fontSize: '0.7rem', color: '#64748b' }}>{pt?.emoji} {pt?.label} ï¿½ {pl.emoji} {pl.label}</div>
                         </div>
-                        <button onClick={e => { e.stopPropagation(); removeAnnotation(zid) }} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: '2px 4px', fontSize: '0.95rem', lineHeight: 1 }}>×</button>
+                        <button onClick={e => { e.stopPropagation(); removeAnnotation(zid) }} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: '2px 4px', fontSize: '0.95rem', lineHeight: 1 }}>ï¿½</button>
                       </div>
                     );
                   })}
@@ -416,7 +416,7 @@ export default function Predict() {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                     {selectedSymptoms.map(s => (
                       <button key={s} onClick={() => toggle(s)} className="sel-sym" style={{ padding: '0.28rem 0.6rem', background: '#16a34a', color: 'white', border: 'none', borderRadius: 20, fontSize: '0.78rem', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontFamily: 'inherit', transition: 'all 0.15s' }}>
-                        {s} ×
+                        {s} ï¿½
                       </button>
                     ))}
                   </div>
@@ -436,7 +436,7 @@ export default function Predict() {
             <div style={{ background: 'white', borderRadius: 20, padding: '1.25rem', boxShadow: '0 4px 20px rgba(0,0,0,0.06)', border: '1px solid #f1f5f9' }}>
               <h3 style={{ fontSize: '0.92rem', fontWeight: 900, color: '#0f172a', margin: '0 0 0.75rem' }}>?? Describe in your words</h3>
               <textarea value={freeText} onChange={e => setFreeText(e.target.value)} rows={3}
-                placeholder="Tell us more — when it started, what makes it better or worse, other issues..."
+                placeholder="Tell us more ï¿½ when it started, what makes it better or worse, other issues..."
                 style={{ width: '100%', padding: '0.75rem', background: '#f8fafc', border: '1.5px solid #e2e8f0', borderRadius: 12, color: '#0f172a', fontSize: '0.88rem', resize: 'none', outline: 'none', fontFamily: 'inherit', boxSizing: 'border-box' }}
               />
             </div>
@@ -457,7 +457,7 @@ export default function Predict() {
 
             <div style={{ textAlign: 'center', padding: '0.75rem', background: '#fff7ed', borderRadius: 12, border: '1px solid #fed7aa' }}>
               <p style={{ fontSize: '0.78rem', color: '#92400e', margin: 0, lineHeight: 1.5 }}>
-                ?? AI guidance only — not a substitute for a doctor.<br />
+                ?? AI guidance only ï¿½ not a substitute for a doctor.<br />
                 <strong style={{ color: '#dc2626' }}>Emergency? Call 108 immediately.</strong>
               </p>
             </div>

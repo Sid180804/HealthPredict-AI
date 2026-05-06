@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ML_API = import.meta.env.VITE_API_BASE;
+const ML_API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const COMMON_TESTS = [
   { name: 'Complete Blood Count (CBC)', icon: '??', category: 'blood' },
@@ -85,7 +85,7 @@ export default function TestRecommender({ appointment, doctorName, onClose, onSa
           <div>
             <h2 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', fontFamily: "'Outfit',sans-serif" }}>?? Recommend Tests</h2>
             <p style={{ margin: '0.15rem 0 0', fontSize: '0.78rem', color: '#94a3b8' }}>
-              Patient: <strong>{appointment?.user_name}</strong> · {appointment?.disease || 'General'}
+              Patient: <strong>{appointment?.user_name}</strong> ï¿½ {appointment?.disease || 'General'}
             </p>
           </div>
           <button onClick={onClose} style={{ background: '#f1f5f9', border: 'none', borderRadius: 8, width: 32, height: 32, cursor: 'pointer', fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>?</button>

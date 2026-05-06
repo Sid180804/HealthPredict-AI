@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ML_API = import.meta.env.VITE_API_BASE;
+const ML_API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const QUICK_OPTIONS = [
   { label: '3 Days', days: 3 },

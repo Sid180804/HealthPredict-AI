@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import useIsDark from '../hooks/useIsDark';
 import { useAuth } from '../context/AuthContext';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const RELATION_ICONS = {
   mother:'??', father:'??', spouse:'??', son:'??', daughter:'??',
@@ -165,7 +165,7 @@ export default function FamilyHealth() {
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontWeight: 800, color: C.text, fontSize: '0.9rem' }}>{m.name}</div>
-                    <div style={{ fontSize: '0.72rem', color: C.sub, textTransform: 'capitalize' }}>{m.relation} · {m.age}y · {m.gender}</div>
+                    <div style={{ fontSize: '0.72rem', color: C.sub, textTransform: 'capitalize' }}>{m.relation} ï¿½ {m.age}y ï¿½ {m.gender}</div>
                   </div>
                   {m.blood_group && (
                     <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.2rem 0.4rem', borderRadius: 6, background: '#fef2f2', color: '#ef4444' }}>{m.blood_group}</span>
@@ -192,7 +192,7 @@ export default function FamilyHealth() {
                     <h3 style={{ margin: 0, fontWeight: 800, color: C.text, fontFamily: "'Outfit',sans-serif" }}>{selectedMember.name}</h3>
                   </div>
                   <div style={{ fontSize: '0.8rem', color: C.sub, textTransform: 'capitalize' }}>
-                    {selectedMember.relation} · {selectedMember.age} years · {selectedMember.gender} {selectedMember.blood_group ? `· ${selectedMember.blood_group}` : ''}
+                    {selectedMember.relation} ï¿½ {selectedMember.age} years ï¿½ {selectedMember.gender} {selectedMember.blood_group ? `ï¿½ ${selectedMember.blood_group}` : ''}
                   </div>
                 </div>
                 <button onClick={() => handleDelete(selectedMember.id)}
@@ -211,7 +211,7 @@ export default function FamilyHealth() {
                   <div key={label} style={{ background: C.inner, borderRadius: 12, padding: '0.75rem', border: `1px solid ${C.inBdr}` }}>
                     <div style={{ fontSize: '0.65rem', fontWeight: 700, color, textTransform: 'uppercase', marginBottom: '0.4rem' }}>{icon} {label}</div>
                     {items && items.length > 0 ? items.map((item, i) => (
-                      <div key={i} style={{ fontSize: '0.78rem', color: C.text, marginBottom: '0.15rem' }}>• {item}</div>
+                      <div key={i} style={{ fontSize: '0.78rem', color: C.text, marginBottom: '0.15rem' }}>ï¿½ {item}</div>
                     )) : (
                       <div style={{ fontSize: '0.75rem', color: C.sub }}>None recorded</div>
                     )}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import useIsDark from '../hooks/useIsDark';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const SEVERITY_CONFIG = {
   high:     { color: '#ef4444', bg: '#fef2f2', darkBg: '#7f1d1d20', label: 'AVOID', icon: '??' },
@@ -102,7 +102,7 @@ export default function MedicineInteractions() {
                   {medicines.length > 2 && (
                     <button onClick={() => removeMed(i)}
                       style={{ width: 32, height: 32, borderRadius: 8, border: `1.5px solid ${C.border}`, background: 'transparent', color: '#ef4444', cursor: 'pointer', fontWeight: 700, fontSize: '1rem' }}>
-                      ×
+                      ï¿½
                     </button>
                   )}
                 </div>

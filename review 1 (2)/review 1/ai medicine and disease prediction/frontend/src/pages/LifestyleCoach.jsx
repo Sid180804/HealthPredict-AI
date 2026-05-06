@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import useIsDark from '../hooks/useIsDark';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const PRIORITY_CONFIG = {
   high:     { color: '#ef4444', bg: '#fef2f2', darkBg: '#7f1d1d20', label: 'HIGH PRIORITY' },
@@ -163,7 +163,7 @@ export default function LifestyleCoach() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '0.75rem' }}>
                       {rec.tips.map((tip, j) => (
                         <div key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                          <span style={{ color: rec.color, fontWeight: 700, flexShrink: 0 }}>•</span>
+                          <span style={{ color: rec.color, fontWeight: 700, flexShrink: 0 }}>ï¿½</span>
                           <span style={{ fontSize: '0.82rem', color: C.sub, lineHeight: 1.55 }}>{tip}</span>
                         </div>
                       ))}

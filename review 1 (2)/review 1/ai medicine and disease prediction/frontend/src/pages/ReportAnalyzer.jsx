@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const INSIGHT_PALETTE = {
   critical: { color: '#dc2626', bg: 'linear-gradient(135deg,#fef2f2,#fee2e2)', border: '#fecaca', icon: '??' },
@@ -68,7 +68,7 @@ export default function ReportAnalyzer() {
       <div className="hp-fade-up" style={{ maxWidth: 1200, margin: '0 auto', padding: '32px 32px 48px' }}>
         {/* Eyebrow + heading */}
         <div style={{ marginBottom: 24 }}>
-          <div className="hp-eyebrow">Reports · AI Lab Analysis</div>
+          <div className="hp-eyebrow">Reports ï¿½ AI Lab Analysis</div>
           <h1 className="hp-sh" style={{ fontSize: 32, marginTop: 6 }}>Medical Report Analyzer</h1>
           <p style={{ color: '#64748b', fontSize: 14, marginTop: 4, maxWidth: 720 }}>
             Upload a lab report or enter values manually. AI analyzes your results and generates
@@ -76,7 +76,7 @@ export default function ReportAnalyzer() {
           </p>
         </div>
 
-        {/* Toggles — kit chip style */}
+        {/* Toggles ï¿½ kit chip style */}
         <div style={{ display: 'flex', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', gap: 6 }}>
             <span
@@ -152,7 +152,7 @@ export default function ReportAnalyzer() {
                         Click to upload lab report
                       </div>
                       <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
-                        Blood report, thyroid panel, lipid profile…
+                        Blood report, thyroid panel, lipid profileï¿½
                       </div>
                       <div style={{
                         display: 'inline-flex', gap: 6, marginTop: 14,
@@ -160,7 +160,7 @@ export default function ReportAnalyzer() {
                         background: '#f1f5f9',
                         fontSize: 11, fontWeight: 700, color: '#475569',
                       }}>
-                        <span>JPG</span><span>·</span><span>PNG</span><span>·</span><span>PDF</span>
+                        <span>JPG</span><span>ï¿½</span><span>PNG</span><span>ï¿½</span><span>PDF</span>
                       </div>
                     </>
                   )}
@@ -170,7 +170,7 @@ export default function ReportAnalyzer() {
                   disabled={!file || loading}
                   className="hp-btn hp-btn-primary hp-btn-lg hp-btn-block"
                 >
-                  {loading ? 'Analyzing…' : <>?? Analyze Report</>}
+                  {loading ? 'Analyzingï¿½' : <>?? Analyze Report</>}
                 </button>
               </>
             ) : (
@@ -209,7 +209,7 @@ export default function ReportAnalyzer() {
                   disabled={loading || !canAnalyzeManual}
                   className="hp-btn hp-btn-primary hp-btn-lg hp-btn-block"
                 >
-                  {loading ? 'Analyzing…' : <>?? Analyze Values</>}
+                  {loading ? 'Analyzingï¿½' : <>?? Analyze Values</>}
                 </button>
               </>
             )}

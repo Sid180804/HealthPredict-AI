@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 const CHAT_ENDPOINT = `${API_BASE}/api/ai/chat`;
 
 const LANGUAGES = [
@@ -17,8 +17,8 @@ const LANGUAGES = [
   { code: 'mr',   name: 'Marathi (?????)',   format: 'mr-IN' },
   { code: 'bn',   name: 'Bengali (?????)',   format: 'bn-IN' },
   { code: 'ur',   name: 'Urdu (????)',       format: 'ur-IN' },
-  { code: 'es',   name: 'Spanish (Español)', format: 'es-ES' },
-  { code: 'fr',   name: 'French (Français)', format: 'fr-FR' },
+  { code: 'es',   name: 'Spanish (Espaï¿½ol)', format: 'es-ES' },
+  { code: 'fr',   name: 'French (Franï¿½ais)', format: 'fr-FR' },
   { code: 'de',   name: 'German (Deutsch)',  format: 'de-DE' },
   { code: 'ar',   name: 'Arabic (???????)',  format: 'ar-SA' },
 ];
@@ -258,7 +258,7 @@ export default function Chat() {
               fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6,
             }}>
               <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#10b981' }}/>
-              Online · {LANGUAGES.length} languages supported
+              Online ï¿½ {LANGUAGES.length} languages supported
             </div>
           </div>
           <select
@@ -388,7 +388,7 @@ export default function Chat() {
                 background: '#fff', border: '1px solid #e2e8f0',
                 borderBottomLeftRadius: 4, fontSize: 14,
               }}>
-                <span style={{ display: 'inline-block', animation: 'hp-glow 1.2s infinite' }}>·····</span>
+                <span style={{ display: 'inline-block', animation: 'hp-glow 1.2s infinite' }}>ï¿½ï¿½ï¿½ï¿½ï¿½</span>
               </div>
             </div>
           )}
@@ -458,7 +458,7 @@ export default function Chat() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-              placeholder="Describe your symptoms or ask anything…"
+              placeholder="Describe your symptoms or ask anythingï¿½"
               style={{
                 flex: 1, border: 'none', outline: 'none',
                 fontSize: 14, color: '#0f172a',

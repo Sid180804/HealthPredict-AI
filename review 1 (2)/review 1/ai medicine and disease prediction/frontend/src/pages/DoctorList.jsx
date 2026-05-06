@@ -5,7 +5,7 @@ import DoctorCard from '../components/DoctorCard';
 import AppointmentModal from '../components/AppointmentModal';
 import useIsDark from '../hooks/useIsDark';
 
-const API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const SPECIALIZATIONS = [
   'All', 'General Physician', 'Cardiologist', 'Pulmonologist', 'Dermatologist',

@@ -9,7 +9,7 @@ import DoctorFinder from "../components/DoctorFinder";
 import HistoryPanel from "../components/HistoryPanel";
 import MedicineDelivery from "../components/MedicineDelivery";
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 export default function PredictionPage() {
   const { user } = useAuth();
@@ -102,7 +102,7 @@ export default function PredictionPage() {
               <span className="text-4xl">??</span>
               <div className="flex-1">
                 <h3 className="font-bold text-red-900 text-xl mb-2">
-                  Emergency – Seek Immediate Medical Care
+                  Emergency ï¿½ Seek Immediate Medical Care
                 </h3>
                 <p className="text-red-800 mb-4">
                   Your symptoms may indicate a medical emergency. Please seek immediate medical care or call emergency services.

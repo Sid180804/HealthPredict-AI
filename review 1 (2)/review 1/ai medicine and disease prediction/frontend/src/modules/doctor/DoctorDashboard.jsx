@@ -12,8 +12,8 @@ import PatientChat from './PatientChat';
 import TestRecommender from './TestRecommender';
 import FollowUpScheduler from './FollowUpScheduler';
 
-const API = import.meta.env.VITE_API_BASE;
-const ML_API = import.meta.env.VITE_API_BASE;
+const API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
+const ML_API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const todayStr = () => new Date().toISOString().split('T')[0];
 
@@ -78,7 +78,7 @@ function AppointmentCard({ appt, onViewPatient, onStartConsult, onComplete, onCa
       {isEmergency && (
         <div style={{ background: 'linear-gradient(90deg,#dc2626,#ef4444)', padding: '0.25rem 1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
           <span style={{ fontSize: '0.7rem' }}>??</span>
-          <span style={{ fontSize: '0.62rem', fontWeight: 800, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Emergency Case — Priority Attention Required</span>
+          <span style={{ fontSize: '0.62rem', fontWeight: 800, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Emergency Case ï¿½ Priority Attention Required</span>
         </div>
       )}
 
@@ -110,10 +110,10 @@ function AppointmentCard({ appt, onViewPatient, onStartConsult, onComplete, onCa
             {/* Disease & symptoms */}
             <div style={{ fontSize: '0.76rem', color: '#64748b', marginBottom: '0.3rem' }}>
               {appt.disease && <span style={{ color: '#0f172a', fontWeight: 600 }}>?? {appt.disease}</span>}
-              {appt.disease && ' · '}
+              {appt.disease && ' ï¿½ '}
               <span>{appt.consultation_type === 'video' ? '?? Video' : appt.consultation_type === 'chat' ? '?? Chat' : '?? Clinic'}</span>
-              {' · '}<span>?? {appt.time || '—'}</span>
-              {' · '}<span>?? ?{appt.consultation_fee || 0}</span>
+              {' ï¿½ '}<span>?? {appt.time || 'ï¿½'}</span>
+              {' ï¿½ '}<span>?? ?{appt.consultation_fee || 0}</span>
             </div>
 
             {appt.symptoms?.length > 0 && (
@@ -218,9 +218,9 @@ function PatientsTabContent({ allAppts, isEmergency, onViewPatient, onPrescribe,
                 </div>
                 <div style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '0.5rem' }}>
                   <span style={{ fontWeight: 700 }}>?? {p.diseases.length > 0 ? p.diseases.join(', ') : 'General'}</span>
-                  <span style={{ margin: '0 0.4rem' }}>·</span>
+                  <span style={{ margin: '0 0.4rem' }}>ï¿½</span>
                   <span>{p.visits.length} visit{p.visits.length !== 1 ? 's' : ''}</span>
-                  <span style={{ margin: '0 0.4rem' }}>·</span>
+                  <span style={{ margin: '0 0.4rem' }}>ï¿½</span>
                   <span>Last: {p.lastAppt.date || 'N/A'}</span>
                 </div>
                 <div style={{ display: 'flex', gap: '0.3rem', flexWrap: 'wrap' }}>
@@ -287,7 +287,7 @@ function PrescriptionsTabContent({ doctorName, onNewPrescription }) {
                   <p style={{ margin: 0, fontWeight: 800, fontSize: '0.85rem', color: '#0f172a' }}>{rx.patient_name || 'Patient'}</p>
                   <p style={{ margin: '0.1rem 0 0', fontSize: '0.7rem', color: '#94a3b8' }}>{rx.created_at ? new Date(rx.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Recent'}</p>
                 </div>
-                <span style={{ fontSize: '0.62rem', fontWeight: 700, padding: '0.1rem 0.5rem', borderRadius: 99, background: '#ecfdf5', color: '#059669' }}>#{rx.booking_id || '—'}</span>
+                <span style={{ fontSize: '0.62rem', fontWeight: 700, padding: '0.1rem 0.5rem', borderRadius: 99, background: '#ecfdf5', color: '#059669' }}>#{rx.booking_id || 'ï¿½'}</span>
               </div>
               {rx.medicines && rx.medicines.length > 0 && (
                 <div style={{ display: 'flex', gap: '0.25rem', flexWrap: 'wrap', marginTop: '0.3rem' }}>
@@ -445,7 +445,7 @@ function MessagesTabContent({ doctorName, bookingAppts, onOpenChat }) {
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ margin: 0, fontWeight: 800, fontSize: '0.85rem', color: '#0f172a' }}>{a.user_name || 'Patient'}</p>
-                <p style={{ margin: '0.1rem 0 0', fontSize: '0.72rem', color: '#94a3b8' }}>{a.disease || 'General'} · {a.date || 'Recent'} · #{a.booking_id}</p>
+                <p style={{ margin: '0.1rem 0 0', fontSize: '0.72rem', color: '#94a3b8' }}>{a.disease || 'General'} ï¿½ {a.date || 'Recent'} ï¿½ #{a.booking_id}</p>
               </div>
               <span style={{ fontSize: '0.78rem', color: '#7c3aed', fontWeight: 700 }}>Open ?</span>
             </div>
@@ -459,7 +459,7 @@ function MessagesTabContent({ doctorName, bookingAppts, onOpenChat }) {
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ margin: 0, fontWeight: 800, fontSize: '0.85rem', color: '#0f172a' }}>{conv.patient_name || 'Patient'}</p>
                 <p style={{ margin: '0.1rem 0 0', fontSize: '0.72rem', color: '#94a3b8' }}>
-                  {conv.messages.length} message{conv.messages.length !== 1 ? 's' : ''} · Last: {new Date(conv.lastTimestamp).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
+                  {conv.messages.length} message{conv.messages.length !== 1 ? 's' : ''} ï¿½ Last: {new Date(conv.lastTimestamp).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
                 </p>
                 <p style={{ margin: '0.2rem 0 0', fontSize: '0.75rem', color: '#64748b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {conv.messages[conv.messages.length - 1]?.message || ''}
@@ -547,9 +547,9 @@ function NewMessageModal({ doctorName, patients, onClose, onSent }) {
           <p style={{ margin: '0 0 0.4rem', fontSize: '0.72rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Select Patient</p>
           <select value={selectedPatient} onChange={e => setSelectedPatient(e.target.value)}
             style={{ width: '100%', padding: '0.6rem 0.75rem', borderRadius: 10, border: '1.5px solid #e2e8f0', fontSize: '0.85rem', outline: 'none', fontFamily: 'inherit', color: selectedPatient ? '#0f172a' : '#94a3b8', marginBottom: '1rem', background: '#fff' }}>
-            <option value="">— Choose a patient —</option>
+            <option value="">ï¿½ Choose a patient ï¿½</option>
             {patients.map((p, i) => (
-              <option key={i} value={p.email || p.name}>{p.name}{p.date ? ` · Last visit: ${p.date}` : ''}</option>
+              <option key={i} value={p.email || p.name}>{p.name}{p.date ? ` ï¿½ Last visit: ${p.date}` : ''}</option>
             ))}
           </select>
 
@@ -608,7 +608,7 @@ function TimelineTabContent({ allAppts, doctorName, bookingAppts }) {
     date: e.date || '',
     time: '',
     title: e.title,
-    subtitle: `${e.patient_name || 'Patient'}${e.description ? ' — ' + e.description : ''}`,
+    subtitle: `${e.patient_name || 'Patient'}${e.description ? ' ï¿½ ' + e.description : ''}`,
     status: e.event_type || 'custom',
     eventType: e.event_type,
     patientName: e.patient_name,
@@ -676,15 +676,15 @@ function TimelineTabContent({ allAppts, doctorName, bookingAppts }) {
                     {entry.type === 'appointment' ? (
                       <>
                         {entry.subtitle && <span style={{ fontWeight: 600 }}>?? {entry.subtitle}</span>}
-                        {entry.subtitle && ' · '}
+                        {entry.subtitle && ' ï¿½ '}
                         <span>?? {entry.date || 'N/A'}</span>
-                        {entry.time && <span> · ?? {entry.time}</span>}
-                        {entry.fee && <span> · ?? ?{entry.fee}</span>}
+                        {entry.time && <span> ï¿½ ?? {entry.time}</span>}
+                        {entry.fee && <span> ï¿½ ?? ?{entry.fee}</span>}
                       </>
                     ) : (
                       <>
                         <span>?? {entry.date || 'N/A'}</span>
-                        {entry.subtitle && <span> · {entry.subtitle}</span>}
+                        {entry.subtitle && <span> ï¿½ {entry.subtitle}</span>}
                       </>
                     )}
                   </p>
@@ -805,7 +805,7 @@ function TimelineEntryModal({ doctorName, patients, onClose, onSaved }) {
           <p style={{ margin: '0 0 0.4rem', fontSize: '0.72rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Select Patient</p>
           <select value={selectedPatient} onChange={e => setSelectedPatient(e.target.value)}
             style={{ width: '100%', padding: '0.6rem 0.75rem', borderRadius: 10, border: '1.5px solid #e2e8f0', fontSize: '0.85rem', outline: 'none', fontFamily: 'inherit', color: selectedPatient ? '#0f172a' : '#94a3b8', marginBottom: '1rem', background: '#fff' }}>
-            <option value="">— Choose a patient (optional) —</option>
+            <option value="">ï¿½ Choose a patient (optional) ï¿½</option>
             {patients.map((p, i) => (
               <option key={i} value={p.email || p.name}>{p.name}</option>
             ))}
@@ -893,9 +893,9 @@ function FollowUpsTabContent({ doctorName }) {
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <p style={{ margin: 0, fontWeight: 800, fontSize: '0.82rem', color: '#059669' }}>
-                    {f.follow_up_date ? new Date(f.follow_up_date + 'T12:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '—'}
+                    {f.follow_up_date ? new Date(f.follow_up_date + 'T12:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : 'ï¿½'}
                   </p>
-                  <p style={{ margin: '0.1rem 0 0', fontSize: '0.65rem', color: '#94a3b8' }}>#{f.booking_id || '—'}</p>
+                  <p style={{ margin: '0.1rem 0 0', fontSize: '0.65rem', color: '#94a3b8' }}>#{f.booking_id || 'ï¿½'}</p>
                 </div>
               </div>
             </div>
@@ -909,7 +909,7 @@ function FollowUpsTabContent({ doctorName }) {
                   <p style={{ margin: '0.2rem 0 0', fontSize: '0.75rem', color: '#94a3b8' }}>{f.reason || 'Follow-up visit'}</p>
                 </div>
                 <p style={{ margin: 0, fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>
-                  {f.follow_up_date ? new Date(f.follow_up_date + 'T12:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '—'}
+                  {f.follow_up_date ? new Date(f.follow_up_date + 'T12:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : 'ï¿½'}
                 </p>
               </div>
             </div>
@@ -1108,7 +1108,7 @@ export default function DoctorDashboard() {
   if (loading) return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f1f5f9', flexDirection: 'column', gap: '1rem', fontFamily: "'Inter',sans-serif" }}>
       <div style={{ width: 44, height: 44, border: '3px solid #e2e8f0', borderTopColor: '#7c3aed', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
-      <p style={{ color: '#64748b', fontSize: '0.875rem', fontWeight: 500 }}>Loading your dashboard…</p>
+      <p style={{ color: '#64748b', fontSize: '0.875rem', fontWeight: 500 }}>Loading your dashboardï¿½</p>
       <style>{`@keyframes spin{100%{transform:rotate(360deg)}}`}</style>
     </div>
   );
@@ -1183,7 +1183,7 @@ export default function DoctorDashboard() {
           {/* Online toggle */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', background: '#f8fafc', border: '1.5px solid #e2e8f0', borderRadius: 99, padding: '0.4rem 0.875rem', cursor: 'pointer' }} onClick={toggleOnline}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: isOnline ? '#22c55e' : '#cbd5e1', boxShadow: isOnline ? '0 0 0 3px rgba(34,197,94,0.2)' : 'none', animation: isOnline ? 'pulse 2s infinite' : 'none' }} />
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: isOnline ? '#15803d' : '#94a3b8' }}>{toggling ? 'Updating…' : isOnline ? 'Online' : 'Offline'}</span>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: isOnline ? '#15803d' : '#94a3b8' }}>{toggling ? 'Updatingï¿½' : isOnline ? 'Online' : 'Offline'}</span>
             <div style={{ width: 36, height: 20, borderRadius: 99, background: isOnline ? '#059669' : '#e2e8f0', position: 'relative', transition: 'background 0.3s', flexShrink: 0 }}>
               <div style={{ width: 14, height: 14, borderRadius: '50%', background: '#fff', position: 'absolute', top: 3, left: isOnline ? 19 : 3, transition: 'left 0.3s', boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }} />
             </div>
@@ -1214,7 +1214,7 @@ export default function DoctorDashboard() {
             <p style={{ margin: '0 0 0.25rem', fontSize: '0.75rem', color: 'rgba(167,139,250,0.9)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{greeting} ??</p>
             <h1 style={{ margin: 0, fontSize: 'clamp(1.5rem,2.5vw,2.1rem)', fontWeight: 900, color: '#fff', fontFamily: "'Outfit',sans-serif" }}>Dr. {user?.name}</h1>
             <p style={{ margin: '0.35rem 0 0', color: 'rgba(255,255,255,0.55)', fontSize: '0.875rem' }}>
-              {todayCount} appointment{todayCount !== 1 ? 's' : ''} today · {confirmedCount} active · {emergencyCount > 0 ? `?? ${emergencyCount} emergency` : `${completedCount} completed`}
+              {todayCount} appointment{todayCount !== 1 ? 's' : ''} today ï¿½ {confirmedCount} active ï¿½ {emergencyCount > 0 ? `?? ${emergencyCount} emergency` : `${completedCount} completed`}
             </p>
           </div>
           <div style={{ display: 'flex', gap: '0.875rem', position: 'relative', flexWrap: 'wrap' }}>
@@ -1488,7 +1488,7 @@ export default function DoctorDashboard() {
                 <div style={{ width: 70, height: 70, borderRadius: '50%', background: 'linear-gradient(135deg,#7c3aed,#a855f7)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: '1.75rem', flexShrink: 0 }}>{user?.name?.[0]?.toUpperCase()}</div>
                 <div>
                   <h2 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 900, color: '#0f172a', fontFamily: "'Outfit',sans-serif" }}>Dr. {user?.name}</h2>
-                  <p style={{ margin: '0.2rem 0 0', fontSize: '0.85rem', color: '#64748b' }}>{profile?.specialization || 'General Physician'} · {profile?.city || user?.city || 'Location not set'}</p>
+                  <p style={{ margin: '0.2rem 0 0', fontSize: '0.85rem', color: '#64748b' }}>{profile?.specialization || 'General Physician'} ï¿½ {profile?.city || user?.city || 'Location not set'}</p>
                   <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
                     <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.2rem 0.6rem', borderRadius: 99, background: verStatus === 'approved' ? '#ecfdf5' : '#fff7ed', color: verStatus === 'approved' ? '#059669' : '#d97706' }}>{verStatus === 'approved' ? '? Verified' : '? Pending'}</span>
                   </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const ML_API = import.meta.env.VITE_API_BASE;
+const ML_API = (import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com');
 
 const TAG_OPTIONS = ['allergy', 'family-history', 'follow-up', 'critical', 'lifestyle', 'medication', 'observation'];
 const TAG_COLORS = { allergy: '#dc2626', 'family-history': '#7c3aed', 'follow-up': '#0ea5e9', critical: '#e11d48', lifestyle: '#059669', medication: '#d97706', observation: '#64748b' };
@@ -61,7 +61,7 @@ export default function DoctorNotes({ appointment, doctorName, onClose }) {
           <div>
             <h2 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', fontFamily: "'Outfit',sans-serif" }}>?? Private Notes</h2>
             <p style={{ margin: '0.15rem 0 0', fontSize: '0.78rem', color: '#94a3b8' }}>
-              Patient: <strong>{appointment?.user_name}</strong> · Visible only to you
+              Patient: <strong>{appointment?.user_name}</strong> ï¿½ Visible only to you
             </p>
           </div>
           <button onClick={onClose} style={{ background: '#f1f5f9', border: 'none', borderRadius: 8, width: 32, height: 32, cursor: 'pointer', fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>?</button>

@@ -183,7 +183,7 @@ export default function Dashboard() {
         if (user?.name) params.append('user_name', user.name);
         if (user?.email) params.append('user_email', user.email);
         params.append('status', 'confirmed');
-        const res = await fetch(`${import.meta.env.VITE_API_BASE}/appointments?${params}`);
+        const res = await fetch(`${(import.meta.env.VITE_API_BASE || 'https://healthpredict-backend.onrender.com')}/api/appointments?${params}`);
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) setNextAppt(data[0]);
       } catch { /* best-effort */ }
