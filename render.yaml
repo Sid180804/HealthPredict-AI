@@ -1,9 +1,7 @@
-﻿# render.yaml — Render Blueprint
-# Deploys both backend services with one click.
-# Docs: https://render.com/docs/blueprint-spec
+# Render Blueprint for HealthPredict AI.
+# Keep this file at the repository root. Render resolves each rootDir from here.
 
 services:
-  # ── Flask ML Microservice ─────────────────────────────────
   - type: web
     name: healthpredict-ml
     runtime: python
@@ -18,7 +16,6 @@ services:
       - key: JWT_SECRET
         generateValue: true
 
-  # ── Node.js Backend (Port 5000) ─────────────────────────────
   - type: web
     name: healthpredict-backend
     runtime: node

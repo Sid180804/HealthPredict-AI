@@ -4,58 +4,55 @@
 
 ```
 Vercel (Frontend SPA)
-  └──► Render (Node.js backend) ──► MongoDB Atlas
+  └──► Render (Node.js backend)
   └──► Render (Flask ML service)
 ```
 
 ---
 
-## Step 1 — MongoDB Atlas
+## Recommended — Render Blueprint
 
-1. Go to [cloud.mongodb.com](https://cloud.mongodb.com) → Create Free Cluster (M0)
-2. Create a database user: Database Access → Add User
-3. Whitelist all IPs: Network Access → `0.0.0.0/0`
-4. Click **Connect** → Drivers → copy the connection string
-5. Replace `<password>` with your database user's password
-6. **Save the connection string** — you'll need it for both Render services
+Use the repository-root `render.yaml` file. It creates both Render services, pins Python to 3.11.14, installs `setuptools`/`wheel` before Python dependencies, and wires `ML_SERVICE_URL` from the ML service into the Node backend.
+
+Manual setup is below if you do not use the Blueprint.
 
 ---
 
-## Step 2 — Deploy Flask ML Service to Render
+## Step 1 — Deploy Flask ML Service to Render
 
 1. Go to [render.com](https://render.com) → New → Web Service
 2. Connect your GitHub repo
 3. Settings:
    - **Name**: `healthpredict-ml`
-   - **Root Directory**: `review 1 (2)/review 1/ai medicine and disease prediction/ml_service`
+   - **Root Directory**: `ml_service`
    - **Runtime**: Python 3
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python app.py`
+   - **Build Command**: `python -m pip install --upgrade pip setuptools wheel && python -m pip install -r requirements.txt`
+   - **Start Command**: `gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120`
 4. Environment Variables (click "Add Environment Variable"):
    ```
+   PYTHON_VERSION = 3.11.14
    OPENAI_API_KEY = sk-proj-...
-   DB_URI         = mongodb+srv://...
-   JWT_SECRET     = <same 32-byte hex for all services>
+   JWT_SECRET     = <generated or shared secret>
    ```
 5. Click **Create Web Service** — note the URL (e.g. `https://healthpredict-ml.onrender.com`)
 
 ---
 
-## Step 3 — Deploy Node.js Backend to Render
+## Step 2 — Deploy Node.js Backend to Render
 
 1. Render → New → Web Service
 2. Settings:
    - **Name**: `healthpredict-backend`
    - **Root Directory**: `review 1 (2)/review 1/ai medicine and disease prediction/backend-node`
    - **Runtime**: Node
-   - **Build Command**: `npm install`
-   - **Start Command**: `node server.js`
+   - **Build Command**: `npm ci`
+   - **Start Command**: `npm start`
 3. Environment Variables:
    ```
    NODE_ENV        = production
+   NODE_VERSION    = 20.19.5
    OPENAI_API_KEY  = sk-proj-...
-   DB_URI          = mongodb+srv://...
-   JWT_SECRET      = <same secret as ML service>
+   JWT_SECRET      = <generated or shared secret>
    ML_SERVICE_URL  = https://healthpredict-ml.onrender.com
    ALLOWED_ORIGINS = https://healthpredict-ai.vercel.app
    ```
@@ -100,10 +97,11 @@ Once you have the Vercel URL, go to the Render **Node backend** service:
 | `VITE_ML_URL` | Vercel | `https://healthpredict-ml.onrender.com` |
 | `VITE_AUTH_URL` | Vercel | `https://healthpredict-ml.onrender.com` |
 | `OPENAI_API_KEY` | Render (both) | `sk-proj-...` |
-| `DB_URI` | Render (both) | `mongodb+srv://...` |
 | `JWT_SECRET` | Render (both) | same 32-byte hex |
 | `ML_SERVICE_URL` | Render (Node) | `https://healthpredict-ml.onrender.com` |
 | `ALLOWED_ORIGINS` | Render (Node) | `https://healthpredict-ai.vercel.app` |
+| `PYTHON_VERSION` | Render ML | `3.11.14` |
+| `NODE_VERSION` | Render Node | `20.19.5` |
 
 ---
 

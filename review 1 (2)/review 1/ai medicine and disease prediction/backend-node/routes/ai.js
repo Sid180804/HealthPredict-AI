@@ -7,11 +7,7 @@ const multer = require('multer');
 // Configure multer for file uploads
 const upload = multer({ storage: multer.memoryStorage() });
 
-const ML_URL = process.env.ML_SERVICE_URL;
-
-if (!ML_URL) {
-  throw new Error("ML_SERVICE_URL not set");
-}
+const ML_URL = process.env.ML_SERVICE_URL || 'http://127.0.0.1:5001';
 
 // Proxy helper
 const proxyRequest = async (method, url, data, res, headers = {}) => {

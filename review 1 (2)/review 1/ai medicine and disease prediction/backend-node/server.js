@@ -3,17 +3,24 @@ const express = require('express');
 const cors    = require('cors');
 const axios   = require('axios');
 
-const ML_SERVICE_URL = process.env.ML_SERVICE_URL;
+const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://127.0.0.1:5001';
+const defaultOrigins = [
+  'https://health-predict-ai-two.vercel.app',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+];
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+const corsOrigins = allowedOrigins.length ? allowedOrigins : defaultOrigins;
 
 const app  = express();
 const PORT = process.env.PORT || 5000;
 
 // ── CORS ────────────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: [
-    "https://health-predict-ai-two.vercel.app", 
-    "http://localhost:5173"
-  ],
+  origin: corsOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
